@@ -1,0 +1,12 @@
+segment tree blog
+https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/
+https://codeforces.com/blog/entry/15890
+
+
+visual
+https://visualgo.net/en/segmenttree
+
+
+problems
+https://leetcode.com/tag/segment-tree/
+https://codeforces.com/blog/entry/22616
