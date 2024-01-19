@@ -1,6 +1,10 @@
 package career.interview.atlassian;
 
-import com.sun.source.tree.Tree;
+
+/*
+https://leetcode.ca/all/1166.html#:~:text=You%20are%20asked%20to%20design,parent%20path%20doesn't%20exist.
+https://leetcode.com/problems/design-file-system/
+*/
 
 import java.util.*;
 
@@ -153,7 +157,12 @@ example
 
 public class DesignFileSystemDemo {
     public static void main(String[] args) {
-        FileSystem fileSystem = new FileSystem();
+//        String command[] = {"FileSystem","createPath","createPath","get","createPath","get"};
+//        Object[][] p = {{},{"/leet",1},{"/leet/code",2},{"/leet/code"},{"/c/d",1},{"/c"}};
+
+        String command[] = {"FileSystem","createPath","get"};
+        Object[][] p =  {{},{"/a",1},{"/a"}};
+        /*FileSystem fileSystem = new FileSystem();
         boolean res=fileSystem.createPath("a",1);
         System.out.println(res);
         res=fileSystem.createPath("a/b",2);
@@ -163,7 +172,24 @@ public class DesignFileSystemDemo {
 
         System.out.println(fileSystem.getPath("a"));
         System.out.println(fileSystem.getPath("a/b"));
-        System.out.println(fileSystem.getPath("c/d"));
+        System.out.println(fileSystem.getPath("c/d"));*/
+
+        int ind=0;
+        FileSystem fileSystem = new FileSystem();
+        for(String com:command){
+            if(ind == 0){
+                ind++;
+                continue;
+            }
+            String path = String.valueOf(p[ind][0]);
+            path = path.substring(1);
+            if(com.equalsIgnoreCase("createPath")) {
+                System.out.println(" create path is done : "+fileSystem.createPath(path,Integer.parseInt(String.valueOf(p[ind][1]))));
+            }else{
+                System.out.println(" get path is done : "+fileSystem.getPath(path));
+            }
+            ind++;
+        }
 
     }
 }
