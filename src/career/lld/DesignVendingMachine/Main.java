@@ -1,6 +1,6 @@
-package target2023.LLD.LowLevelDesign.DesignVendingMachine;
+package career.lld.DesignVendingMachine;
 
-import target2023.LLD.LowLevelDesign.DesignVendingMachine.VendingStates.State;
+import career.lld.DesignVendingMachine.VendingStates.State;
 
 public class Main {
 

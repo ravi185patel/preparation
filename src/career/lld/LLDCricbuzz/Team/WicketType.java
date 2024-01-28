@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.Team;
+package career.lld.LLDCricbuzz.Team;
 
 public enum WicketType {
 

@@ -1,11 +1,11 @@
-package target2023.LLD.LowLevelDesign.DesignATM.ATMStates;
+package career.lld.DesignATM.ATMStates;
 
-import target2023.LLD.LowLevelDesign.DesignATM.ATM;
-import target2023.LLD.LowLevelDesign.DesignATM.AmountWithdrawal.CashWithdrawProcessor;
-import target2023.LLD.LowLevelDesign.DesignATM.AmountWithdrawal.FiveHundredWithdrawProcessor;
-import target2023.LLD.LowLevelDesign.DesignATM.AmountWithdrawal.OneHundredWithdrawProcessor;
-import target2023.LLD.LowLevelDesign.DesignATM.AmountWithdrawal.TwoThousandWithdrawProcessor;
-import target2023.LLD.LowLevelDesign.DesignATM.Card;
+import career.lld.DesignATM.ATM;
+import career.lld.DesignATM.AmountWithdrawal.CashWithdrawProcessor;
+import career.lld.DesignATM.AmountWithdrawal.FiveHundredWithdrawProcessor;
+import career.lld.DesignATM.AmountWithdrawal.OneHundredWithdrawProcessor;
+import career.lld.DesignATM.AmountWithdrawal.TwoThousandWithdrawProcessor;
+import career.lld.DesignATM.Card;
 
 public class CashWithdrawalState extends ATMState {
 

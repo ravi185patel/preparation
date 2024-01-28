@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz;
+package career.lld.LLDCricbuzz;
 
 public class OneDayMatchType implements MatchType{
     @Override

@@ -1,4 +1,4 @@
-package LowLevelDesign.LLDSnakeLadder;
+package career.lld.LLDSnakeLadder;
 
 import java.util.concurrent.ThreadLocalRandom;
 

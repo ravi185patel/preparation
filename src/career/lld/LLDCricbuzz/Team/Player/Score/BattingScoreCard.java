@@ -1,7 +1,7 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.Score;
+package career.lld.LLDCricbuzz.Team.Player.Score;
 
 
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Wicket;
+import career.lld.LLDCricbuzz.Team.Wicket;
 
 public class BattingScoreCard {
     public int totalRuns;

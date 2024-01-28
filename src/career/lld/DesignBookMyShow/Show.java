@@ -1,4 +1,4 @@
-package LowLevelDesign.DesignBookMyShow;
+package career.lld.DesignBookMyShow;
 
 import java.util.ArrayList;
 import java.util.List;

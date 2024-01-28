@@ -1,8 +1,8 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.Team;
+package career.lld.LLDCricbuzz.Team;
 
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.PlayerBattingController;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.PlayerBowlingController;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.PlayerDetails;
+import career.lld.LLDCricbuzz.Team.Player.PlayerBattingController;
+import career.lld.LLDCricbuzz.Team.Player.PlayerBowlingController;
+import career.lld.LLDCricbuzz.Team.Player.PlayerDetails;
 
 import java.util.List;
 import java.util.Queue;

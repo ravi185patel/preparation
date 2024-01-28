@@ -1,7 +1,7 @@
-package target2023.LLD.LowLevelDesign.DesignVendingMachine;
+package career.lld.DesignVendingMachine;
 
-import target2023.LLD.LowLevelDesign.DesignVendingMachine.VendingStates.State;
-import target2023.LLD.LowLevelDesign.DesignVendingMachine.VendingStates.impl.IdleState;
+import career.lld.DesignVendingMachine.VendingStates.State;
+import career.lld.DesignVendingMachine.VendingStates.impl.IdleState;
 
 import java.util.ArrayList;
 import java.util.List;

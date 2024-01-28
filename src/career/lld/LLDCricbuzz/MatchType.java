@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz;
+package career.lld.LLDCricbuzz;
 
 public interface MatchType {
     public int noOfOvers();

@@ -1,9 +1,9 @@
-package target2023.LLD.LowLevelDesign.DesignVendingMachine.VendingStates;
+package career.lld.DesignVendingMachine.VendingStates;
 
 
-import target2023.LLD.LowLevelDesign.DesignVendingMachine.Coin;
-import target2023.LLD.LowLevelDesign.DesignVendingMachine.Item;
-import target2023.LLD.LowLevelDesign.DesignVendingMachine.VendingMachine;
+import career.lld.DesignVendingMachine.Coin;
+import career.lld.DesignVendingMachine.Item;
+import career.lld.DesignVendingMachine.VendingMachine;
 
 import java.util.List;
 

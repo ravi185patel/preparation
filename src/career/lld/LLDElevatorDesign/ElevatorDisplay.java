@@ -1,4 +1,4 @@
-package LowLevelDesign.LLDElevatorDesign;
+package career.lld.LLDElevatorDesign;
 
 public class ElevatorDisplay {
 

@@ -1,7 +1,7 @@
-package target2023.LLD.LowLevelDesign.DesignATM.AmountWithdrawal;
+package career.lld.DesignATM.AmountWithdrawal;
 
 
-import target2023.LLD.LowLevelDesign.DesignATM.ATM;
+import career.lld.DesignATM.ATM;
 
 public class OneHundredWithdrawProcessor extends CashWithdrawProcessor{
 

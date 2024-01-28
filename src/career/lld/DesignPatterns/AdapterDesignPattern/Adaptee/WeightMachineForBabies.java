@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.DesignPatterns.AdapterDesignPattern.Adaptee;
+package career.lld.DesignPatterns.AdapterDesignPattern.Adaptee;
 
 public class WeightMachineForBabies implements WeightMachine{
     @Override

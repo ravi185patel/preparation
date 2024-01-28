@@ -1,8 +1,7 @@
-package target2023.LLD.LowLevelDesign.LLDTicTacToe;
+package career.lld.LLDTicTacToe;
 
 
-import com.sun.tools.javac.util.Pair;
-import target2023.LLD.LowLevelDesign.LLDTicTacToe.Model.*;
+import career.lld.LLDTicTacToe.Model.*;
 
 import java.util.Deque;
 import java.util.LinkedList;

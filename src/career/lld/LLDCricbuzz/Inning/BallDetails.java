@@ -1,13 +1,13 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.Inning;
+package career.lld.LLDCricbuzz.Inning;
 
 
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.ScoreUpdater.BattingScoreUpdater;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.ScoreUpdater.BowlingScoreUpdater;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.ScoreUpdater.ScoreUpdaterObserver;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.PlayerDetails;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Team;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Wicket;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.WicketType;
+import career.lld.LLDCricbuzz.ScoreUpdater.BattingScoreUpdater;
+import career.lld.LLDCricbuzz.ScoreUpdater.BowlingScoreUpdater;
+import career.lld.LLDCricbuzz.ScoreUpdater.ScoreUpdaterObserver;
+import career.lld.LLDCricbuzz.Team.Player.PlayerDetails;
+import career.lld.LLDCricbuzz.Team.Team;
+import career.lld.LLDCricbuzz.Team.Wicket;
+import career.lld.LLDCricbuzz.Team.WicketType;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.DesignPatterns.CompositeDesignPattern.ProblemStatement;
+package career.lld.DesignPatterns.CompositeDesignPattern.ProblemStatement;
 
 import java.util.ArrayList;
 import java.util.List;

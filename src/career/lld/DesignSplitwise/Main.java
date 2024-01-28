@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise;
+package career.lld.DesignSplitwise;
 
 public class Main {
 

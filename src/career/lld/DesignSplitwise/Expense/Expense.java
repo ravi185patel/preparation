@@ -1,9 +1,9 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise.Expense;
+package career.lld.DesignSplitwise.Expense;
 
 
 
-import target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.Split.Split;
-import target2023.LLD.LowLevelDesign.DesignSplitwise.User.User;
+import career.lld.DesignSplitwise.Expense.Split.Split;
+import career.lld.DesignSplitwise.User.User;
 
 import java.util.ArrayList;
 import java.util.List;

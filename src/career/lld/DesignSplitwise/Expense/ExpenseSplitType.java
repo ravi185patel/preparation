@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise.Expense;
+package career.lld.DesignSplitwise.Expense;
 
 public enum ExpenseSplitType {
     EQUAL,

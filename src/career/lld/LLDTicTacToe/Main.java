@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.LLDTicTacToe;
+package career.lld.LLDTicTacToe;
 
 public class Main {
 

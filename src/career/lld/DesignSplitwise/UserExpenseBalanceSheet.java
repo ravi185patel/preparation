@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise;
+package career.lld.DesignSplitwise;
 
 import java.util.HashMap;
 import java.util.Map;

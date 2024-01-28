@@ -1,4 +1,4 @@
-package LowLevelDesign.LLDSnakeLadder;
+package career.lld.LLDSnakeLadder;
 
 public class Player {
 

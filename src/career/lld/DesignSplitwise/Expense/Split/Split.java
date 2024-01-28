@@ -1,6 +1,6 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.Split;
+package career.lld.DesignSplitwise.Expense.Split;
 
-import target2023.LLD.LowLevelDesign.DesignSplitwise.User.User;
+import career.lld.DesignSplitwise.User.User;
 
 public class Split {
 

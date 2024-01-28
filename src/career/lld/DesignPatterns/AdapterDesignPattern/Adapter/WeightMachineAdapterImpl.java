@@ -1,7 +1,7 @@
-package target2023.LLD.LowLevelDesign.DesignPatterns.AdapterDesignPattern.Adapter;
+package career.lld.DesignPatterns.AdapterDesignPattern.Adapter;
 
 
-import target2023.LLD.LowLevelDesign.DesignPatterns.AdapterDesignPattern.Adaptee.WeightMachine;
+import career.lld.DesignPatterns.AdapterDesignPattern.Adaptee.WeightMachine;
 
 public class WeightMachineAdapterImpl implements WeightMachineAdapter{
 

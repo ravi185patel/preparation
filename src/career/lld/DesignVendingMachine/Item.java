@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.DesignVendingMachine;
+package career.lld.DesignVendingMachine;
 
 public class Item {
     ItemType type;

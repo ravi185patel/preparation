@@ -1,8 +1,8 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player;
+package career.lld.LLDCricbuzz.Team.Player;
 
 
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.Score.BattingScoreCard;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.Score.BowlingScoreCard;
+import career.lld.LLDCricbuzz.Team.Player.Score.BattingScoreCard;
+import career.lld.LLDCricbuzz.Team.Player.Score.BowlingScoreCard;
 
 public class PlayerDetails {
 

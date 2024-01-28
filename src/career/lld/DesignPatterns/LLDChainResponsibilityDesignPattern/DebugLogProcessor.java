@@ -1,4 +1,4 @@
-package LowLevelDesign.DesignPatterns.LLDChainResponsibilityDesignPattern;
+package career.lld.DesignPatterns.LLDChainResponsibilityDesignPattern;
 
 public class DebugLogProcessor extends LogProcessor{
 

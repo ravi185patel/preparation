@@ -1,4 +1,4 @@
-package LowLevelDesign.DesignDataStructures;
+package career.lld.DesignDataStructures;
 
 public class MyHashMap<K,V> {
 

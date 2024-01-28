@@ -1,10 +1,10 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz;
+package career.lld.LLDCricbuzz;
 
 
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.Person;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.PlayerDetails;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.PlayerType;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Team;
+import career.lld.LLDCricbuzz.Team.Player.Person;
+import career.lld.LLDCricbuzz.Team.Player.PlayerDetails;
+import career.lld.LLDCricbuzz.Team.Player.PlayerType;
+import career.lld.LLDCricbuzz.Team.Team;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

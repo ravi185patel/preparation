@@ -1,4 +1,4 @@
-package LowLevelDesign.HandleNullObject;
+package career.lld.HandleNullObject;
 
 public class NullVehicle implements Vehicle{
 

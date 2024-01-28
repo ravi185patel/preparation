@@ -1,6 +1,6 @@
-package LowLevelDesign.DesignBookMyShow;
+package career.lld.DesignBookMyShow;
 
-import LowLevelDesign.DesignBookMyShow.Enums.SeatCategory;
+import career.lld.DesignBookMyShow.Enums.SeatCategory;
 
 public class Seat {
 

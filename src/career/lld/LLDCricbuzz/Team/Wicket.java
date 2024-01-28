@@ -1,9 +1,9 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.Team;
+package career.lld.LLDCricbuzz.Team;
 
 
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Inning.BallDetails;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Inning.OverDetails;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.PlayerDetails;
+import career.lld.LLDCricbuzz.Inning.BallDetails;
+import career.lld.LLDCricbuzz.Inning.OverDetails;
+import career.lld.LLDCricbuzz.Team.Player.PlayerDetails;
 
 public class Wicket {
 

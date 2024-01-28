@@ -1,9 +1,9 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise.Expense;
+package career.lld.DesignSplitwise.Expense;
 
-import target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.Split.EqualExpenseSplit;
-import target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.Split.ExpenseSplit;
-import target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.Split.PercentageExpenseSplit;
-import target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.Split.UnequalExpenseSplit;
+import career.lld.DesignSplitwise.Expense.Split.EqualExpenseSplit;
+import career.lld.DesignSplitwise.Expense.Split.ExpenseSplit;
+import career.lld.DesignSplitwise.Expense.Split.PercentageExpenseSplit;
+import career.lld.DesignSplitwise.Expense.Split.UnequalExpenseSplit;
 
 public class SplitFactory {
 

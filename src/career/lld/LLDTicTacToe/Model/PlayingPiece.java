@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.LLDTicTacToe.Model;
+package career.lld.LLDTicTacToe.Model;
 
 public class PlayingPiece {
 

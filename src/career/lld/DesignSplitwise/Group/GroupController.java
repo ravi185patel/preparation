@@ -1,6 +1,6 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise.Group;
+package career.lld.DesignSplitwise.Group;
 
-import target2023.LLD.LowLevelDesign.DesignSplitwise.User.User;
+import career.lld.DesignSplitwise.User.User;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.ScoreUpdater;
+package career.lld.LLDCricbuzz.ScoreUpdater;
 
 
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Inning.BallDetails;
+import career.lld.LLDCricbuzz.Inning.BallDetails;
 
 public interface ScoreUpdaterObserver {
 

@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.LLDSnakeLadder;
+package career.lld.LLDSnakeLadder;
 
 import java.util.Deque;
 import java.util.LinkedList;

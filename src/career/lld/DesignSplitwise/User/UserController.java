@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise.User;
+package career.lld.DesignSplitwise.User;
 
 
 import java.util.ArrayList;

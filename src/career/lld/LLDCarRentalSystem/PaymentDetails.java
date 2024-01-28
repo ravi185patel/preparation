@@ -1,4 +1,4 @@
-package LowLevelDesign.LLDCarRentalSystem;
+package career.lld.LLDCarRentalSystem;
 
 import java.util.Date;
 

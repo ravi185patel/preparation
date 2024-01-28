@@ -1,9 +1,9 @@
-package target2023.LLD.LowLevelDesign.DesignATM.ATMStates;
+package career.lld.DesignATM.ATMStates;
 
 
-import target2023.LLD.LowLevelDesign.DesignATM.ATM;
-import target2023.LLD.LowLevelDesign.DesignATM.Card;
-import target2023.LLD.LowLevelDesign.DesignATM.TransactionType;
+import career.lld.DesignATM.ATM;
+import career.lld.DesignATM.Card;
+import career.lld.DesignATM.TransactionType;
 
 public abstract class ATMState {
 

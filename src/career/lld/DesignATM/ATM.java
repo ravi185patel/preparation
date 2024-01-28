@@ -1,7 +1,7 @@
-package target2023.LLD.LowLevelDesign.DesignATM;
+package career.lld.DesignATM;
 
-import target2023.LLD.LowLevelDesign.DesignATM.ATMStates.ATMState;
-import target2023.LLD.LowLevelDesign.DesignATM.ATMStates.IdleState;
+import career.lld.DesignATM.ATMStates.ATMState;
+import career.lld.DesignATM.ATMStates.IdleState;
 
 public class ATM {
 

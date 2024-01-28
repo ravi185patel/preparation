@@ -1,9 +1,9 @@
-package target2023.LLD.LowLevelDesign.DesignPatterns.AdapterDesignPattern.Client;
+package career.lld.DesignPatterns.AdapterDesignPattern.Client;
 
 
-import target2023.LLD.LowLevelDesign.DesignPatterns.AdapterDesignPattern.Adaptee.WeightMachineForBabies;
-import target2023.LLD.LowLevelDesign.DesignPatterns.AdapterDesignPattern.Adapter.WeightMachineAdapter;
-import target2023.LLD.LowLevelDesign.DesignPatterns.AdapterDesignPattern.Adapter.WeightMachineAdapterImpl;
+import career.lld.DesignPatterns.AdapterDesignPattern.Adaptee.WeightMachineForBabies;
+import career.lld.DesignPatterns.AdapterDesignPattern.Adapter.WeightMachineAdapter;
+import career.lld.DesignPatterns.AdapterDesignPattern.Adapter.WeightMachineAdapterImpl;
 
 public class Main {
 

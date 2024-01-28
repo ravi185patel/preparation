@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player;
+package career.lld.LLDCricbuzz.Team.Player;
 
 public enum PlayerType {
 

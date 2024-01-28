@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.Inning;
+package career.lld.LLDCricbuzz.Inning;
 
 public enum RunType {
 

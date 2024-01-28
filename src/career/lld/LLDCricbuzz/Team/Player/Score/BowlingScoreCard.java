@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Player.Score;
+package career.lld.LLDCricbuzz.Team.Player.Score;
 
 public class BowlingScoreCard {
     public int totalOversCount;

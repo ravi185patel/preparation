@@ -1,10 +1,10 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise.Group;
+package career.lld.DesignSplitwise.Group;
 
-import target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.Expense;
-import target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.ExpenseController;
-import target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.ExpenseSplitType;
-import target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.Split.Split;
-import target2023.LLD.LowLevelDesign.DesignSplitwise.User.User;
+import career.lld.DesignSplitwise.Expense.Expense;
+import career.lld.DesignSplitwise.Expense.ExpenseController;
+import career.lld.DesignSplitwise.Expense.ExpenseSplitType;
+import career.lld.DesignSplitwise.Expense.Split.Split;
+import career.lld.DesignSplitwise.User.User;
 
 import java.util.ArrayList;
 import java.util.List;

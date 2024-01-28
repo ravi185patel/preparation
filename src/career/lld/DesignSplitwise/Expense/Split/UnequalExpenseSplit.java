@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise.Expense.Split;
+package career.lld.DesignSplitwise.Expense.Split;
 
 import java.util.List;
 

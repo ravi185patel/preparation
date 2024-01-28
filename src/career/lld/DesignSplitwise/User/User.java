@@ -1,7 +1,7 @@
-package target2023.LLD.LowLevelDesign.DesignSplitwise.User;
+package career.lld.DesignSplitwise.User;
 
 
-import target2023.LLD.LowLevelDesign.DesignSplitwise.UserExpenseBalanceSheet;
+import career.lld.DesignSplitwise.UserExpenseBalanceSheet;
 
 public class User {
 

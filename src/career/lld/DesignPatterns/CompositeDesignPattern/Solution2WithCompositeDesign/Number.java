@@ -1,4 +1,4 @@
-package target2023.LLD.LowLevelDesign.DesignPatterns.CompositeDesignPattern.Solution2WithCompositeDesign;
+package career.lld.DesignPatterns.CompositeDesignPattern.Solution2WithCompositeDesign;
 
 public class Number implements ArithmeticExpression{
     int value;

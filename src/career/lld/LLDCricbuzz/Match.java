@@ -1,8 +1,8 @@
-package target2023.LLD.LowLevelDesign.LLDCricbuzz;
+package career.lld.LLDCricbuzz;
 
 
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Inning.InningDetails;
-import target2023.LLD.LowLevelDesign.LLDCricbuzz.Team.Team;
+import career.lld.LLDCricbuzz.Inning.InningDetails;
+import career.lld.LLDCricbuzz.Team.Team;
 
 import java.util.Date;
 
