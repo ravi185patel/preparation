@@ -46,7 +46,8 @@ public class SetMatrixZero {
     public static void setMatrixZero1(int matrix[][]){
 
         // here we use first row as a pointer/flag to determine that column have 0 or not, same way for row.
-        // only (0,0) cell we can't identify which row or column has 0 or not. so we define col variable which will be set when j == 0 for col and (0,0) point for row.
+        // only (0,0) cell we can't identify which row or column has 0 or not.
+        // so we define col variable which will be set when j == 0 for col and (0,0) point for row.
         int col = 1;
 
         for(int i=0;i<matrix.length;i++){

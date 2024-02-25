@@ -30,6 +30,14 @@ public class KInversePairInArray {
         int count=dfs(n,k);
         System.out.println(count);
 
+        int dp[][]=new int[n+1][k+1];
+        for(int i[]:dp){
+            Arrays.fill(i,-1);
+        }
+
+        count = dfsMemo(n,k,dp);
+        System.out.println(count);
+
     }
 
     public static int dfs(int n,int k){
@@ -44,6 +52,25 @@ public class KInversePairInArray {
             res = (res + dfs(n-1,k-i))%mode;
         }
         return res;
+    }
+
+
+    public static int dfsMemo(int n,int k,int dp[][]){
+        if(n == 0){
+            return k == 0 ? 1:0;
+        }
+        if(k < 0){
+            return 0;
+        }
+
+        if(dp[n][k] != -1){
+            return dp[n][k];
+        }
+        int res=0;
+        for(int i=0;i<n;i++){
+            res = (res + dfsMemo(n-1,k-i,dp))%mode;
+        }
+        return dp[n][k] = res%mode;
     }
 
     public static boolean findKInversePairs(int arr[],int k){
