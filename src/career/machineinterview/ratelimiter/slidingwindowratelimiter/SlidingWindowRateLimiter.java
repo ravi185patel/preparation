@@ -47,7 +47,7 @@ public class SlidingWindowRateLimiter {
         return false;
     }
 
-    private boolean requestEligibleForProcessOrNot(String api){
+    private synchronized boolean requestEligibleForProcessOrNot(String api){
         return urlMetadataPqMap.get(api).size() < urlMetadataMap.get(api).getSize();
     }
 
