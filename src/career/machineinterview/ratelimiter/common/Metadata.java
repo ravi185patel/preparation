@@ -1,18 +1,14 @@
 package career.machineinterview.ratelimiter.common;
 
-import java.time.LocalDateTime;
 
 public class Metadata {
 
+    private final String api;
     private Integer totalToken;
-    private Integer time;
-    private String api;
     private Integer token;
     private Integer resetTimer;
-
-    private LocalDateTime insertTime;
-
     private Integer size;
+    private final Integer time; // common
 
     public Metadata(Integer token, Integer time, String api) {
         this.totalToken = token;
@@ -51,10 +47,6 @@ public class Metadata {
         this.time = time;
     }
 
-    public LocalDateTime getInsertTime() {
-        return insertTime;
-    }
-
     public Integer getSize() {
         return size;
     }
@@ -67,7 +59,6 @@ public class Metadata {
                 ", api='" + api + '\'' +
                 ", token=" + token +
                 ", resetTimer=" + resetTimer +
-                ", insertTime=" + insertTime +
                 ", size=" + size +
                 '}';
     }
