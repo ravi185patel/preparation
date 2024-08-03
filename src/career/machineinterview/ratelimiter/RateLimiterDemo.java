@@ -1,27 +1,57 @@
 package career.machineinterview.ratelimiter;
 
-import career.machineinterview.ratelimiter.slidingwindowratelimiter.SlidingWindowRateLimiter;
-
+import career.machineinterview.ratelimiter.factoryImpl.RateLimiterFactory;
+import career.machineinterview.ratelimiter.ratelimiterI.RateLimiterI;
 public class RateLimiterDemo {
     public static void main(String[] args) throws InterruptedException {
-        SlidingWindowRateLimiter slidingWindowRateLimiter = new SlidingWindowRateLimiter();
-        slidingWindowRateLimiter.registerApi("xyz",3,20);
 
-        slidingWindowRateLimiter.accessApi("xyz");
-        slidingWindowRateLimiter.accessApi("xyz");
+//        testSlidingWindowLogRateLimiter();
+        testFixedWindowCounterRateLimiter();
+
+    }
+
+
+    public static void testSlidingWindowLogRateLimiter() throws InterruptedException {
+        RateLimiterI rateLimiterI = RateLimiterFactory.getRateLimiter("slidingwindowlog");
+        rateLimiterI.registerApi("atlassian",20l,5);
+
+        rateLimiterI.accessApi("https://atlassian.com");
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/search");
         Thread.sleep(1000*10);
-        slidingWindowRateLimiter.accessApi("xyz");
-        slidingWindowRateLimiter.accessApi("xyz"); // dropped
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/jobapi");
+        Thread.sleep(1000*10);
+        rateLimiterI.accessApi("https://atlassian.com/submit");
 
-//        Thread.sleep(1000*20);
+        Thread.sleep(1000*20);
+        rateLimiterI.accessApi("https://atlassian.com");
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/jobapi");
+        rateLimiterI.accessApi("https://atlassian.com/submit");
+    }
 
-        slidingWindowRateLimiter.accessApi("xyz");
-        Thread.sleep(100);
-        slidingWindowRateLimiter.accessApi("xyz");
-        Thread.sleep(100);
-        slidingWindowRateLimiter.accessApi("xyz");
-        Thread.sleep(100);
-        slidingWindowRateLimiter.accessApi("xyz"); // dropped
+    public static void testFixedWindowCounterRateLimiter() throws InterruptedException {
+        RateLimiterI rateLimiterI = RateLimiterFactory.getRateLimiter("fixedwindow");
+        rateLimiterI.registerApi("atlassian",20l,5);
 
+        rateLimiterI.accessApi("https://atlassian.com");
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        Thread.sleep(1000*10);
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/jobapi");
+        Thread.sleep(1000*10);
+        rateLimiterI.accessApi("https://atlassian.com/submit");
+
+        Thread.sleep(1000*20);
+        rateLimiterI.accessApi("https://atlassian.com");
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/search");
+        rateLimiterI.accessApi("https://atlassian.com/jobapi");
+        rateLimiterI.accessApi("https://atlassian.com/submit");
     }
 }
