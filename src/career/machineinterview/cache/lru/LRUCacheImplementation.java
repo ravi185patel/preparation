@@ -2,13 +2,14 @@ package career.machineinterview.cache.lru;
 
 
 import career.machineinterview.cache.cacheinterface.CacheI;
-import career.machineinterview.cache.pojo.Cache;
+import career.machineinterview.cache.pojo.LRUCache;
 import career.machineinterview.cache.pojo.ListNode;
+
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class LRUCacheImplementation implements CacheI {
 
-    private Cache lruCache;
+    private LRUCache lruCache;
     private final ReentrantReadWriteLock lock;
 
     public LRUCacheImplementation(){
@@ -16,7 +17,7 @@ public class LRUCacheImplementation implements CacheI {
     }
 
     public LRUCacheImplementation(int capacity){
-        lruCache = new Cache(capacity);
+        lruCache = new LRUCache(capacity);
         lock = new ReentrantReadWriteLock();
     }
 
