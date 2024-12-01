@@ -61,7 +61,7 @@ public class AlphabatRangeQueries {
         System.out.println(Arrays.toString(ch));
 
         Alphabet alphabet=new Alphabet(ch);
-        System.out.println(Arrays.toString(alphabet.segArr));
+//        System.out.println(Arrays.toString(alphabet.segArr));
         System.out.println(alphabet.query(0,16));
     }
 }

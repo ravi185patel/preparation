@@ -1,4 +1,4 @@
-package career.datastructure.recursive;
+package career.datastructure.recurssion;
 
 import java.util.ArrayList;
 import java.util.List;
