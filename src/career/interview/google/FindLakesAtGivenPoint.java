@@ -5,22 +5,22 @@ import java.util.*;
 
 public class FindLakesAtGivenPoint {
     public static void main(String[] args) {
-//        char ocen[][]={
-//                {'.','.','+','.','.','.','.','.','.'},
-//                {'.','+','+','+','.','.','.','.','.'},
-//                {'.','+','.','+','.','.','.','.','.'},
-//                {'.','+','.','+','.','.','+','+','.'},
-//                {'.','+','+','+','.','+','+','+','.'},
-//                {'.','.','.','.','.','+','.','.','+'},
-//                {'.','+','+','+','+','+','+','+','+'},
-//                {'.','.','.','.','.','.','+','.','+'},
-//                {'.','.','.','.','.','.','.','+','.'},
-//        };
-
-//        markAllPointOtherThanLakes(ocen,0,2);
-//        markAllPointOtherThanLakes(ocen,6,1);
-
         char ocen[][]={
+                {'.','.','+','.','.','.','.','.','.'},
+                {'.','+','+','+','.','.','.','.','.'},
+                {'.','+','.','+','.','.','.','.','.'},
+                {'.','+','.','+','.','.','+','+','.'},
+                {'.','+','+','+','.','+','+','+','.'},
+                {'.','.','.','.','+','+','.','.','+'},
+                {'.','+','+','+','+','+','+','+','+'},
+                {'.','.','.','.','.','.','+','.','+'},
+                {'.','.','.','.','.','.','.','+','.'},
+        };
+
+        System.out.println(markAllPointOtherThanLakes(ocen,0,2));
+        System.out.println(markAllPointOtherThanLakes(ocen,6,1));
+
+         ocen=new char[][]{
                 {'.','.','.','.','.','.','.','.','.'},
                 {'.','.','.','.','.','+','+','+','+'},
                 {'.','.','.','.','.','+','.','.','+'},
@@ -34,12 +34,12 @@ public class FindLakesAtGivenPoint {
                 {'.','+','+','+','.','+','+','+','.'}
         };
 
-        markAllPointOtherThanLakes(ocen,1,8);
-//        markAllPointOtherThanLakes(ocen,0,2);
+        System.out.println(markAllPointOtherThanLakes(ocen,1,8));
+        System.out.println(markAllPointOtherThanLakes(ocen,0,2));
     }
 
     static Set<String> set = new HashSet<>();
-    private static void markAllPointOtherThanLakes(char [][]ocen,int startX,int startY){
+    private static int markAllPointOtherThanLakes(char [][]ocen,int startX,int startY){
         int m = ocen.length;
         int  n = ocen[0].length;
         boolean visited[][]=new boolean[m][n];
@@ -51,7 +51,7 @@ public class FindLakesAtGivenPoint {
         if(ocen[startX][startY]=='.') System.out.println("no");
         else dfs(startX,startY,m,n,ocen,visited,points,bounds);
 
-        points.stream().forEach(i->System.out.print(Arrays.toString(i)));
+//        points.stream().forEach(i->System.out.print(Arrays.toString(i)));
         visited = new boolean[m][n];
 
         for(int point[]:points){
@@ -67,7 +67,7 @@ public class FindLakesAtGivenPoint {
                 }
             }
         }
-        System.out.println(count);
+        return count;
     }
 //
 
