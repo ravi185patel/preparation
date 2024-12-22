@@ -32,7 +32,6 @@ public class IsBipratedGraph {
         for(int nbNode:graph[node]){
             if(visited[nbNode]==false){
                 visited[nbNode]=true;
-//                dfs(nbNode,1-color,graph,visited,colorDp);
                 if(dfs(nbNode,1-color,graph,visited,colorDp)){
                     // traverse child with 0 color if parent has 1 and vice versa
                     // only skip call when node is already visited and have different color then parent.
