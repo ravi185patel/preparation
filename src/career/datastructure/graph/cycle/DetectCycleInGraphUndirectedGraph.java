@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class DetectCycleInGraph {
+public class DetectCycleInGraphUndirectedGraph {
     public static void main(String[] args) {
 //        int [][]adj = {{1}, {0,2,4}, {1,3}, {2,4}, {1,3}};
         int[][]adj = {{}, {340, 455}, {}, {231}, {}, {}, {},
