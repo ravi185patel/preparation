@@ -1,6 +1,8 @@
 package career.datastructure.graph.cycle;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class IsBipratedGraph {
     public static void main(String[] args) {
@@ -16,7 +18,10 @@ public class IsBipratedGraph {
     private static boolean isBiprated(int[][]graph,boolean visited[],int parent[]){
 
         for(int i=0;i<graph.length;i++){
-            if(visited[i]==false && dfs(i,0,graph,visited,parent)){
+//            if(visited[i]==false && dfs(i,0,graph,visited,parent)){
+//                return false;
+//            }
+            if(visited[i]==false && bfs(i,0,graph,visited,parent)){
                 return false;
             }
             System.out.println(Arrays.toString(parent));
@@ -39,6 +44,28 @@ public class IsBipratedGraph {
                 }
             }else if(colorDp[nbNode] == color){ // parent and child color can't be same
                 return true;
+            }
+        }
+        return false;
+    }
+
+
+    private static boolean bfs(int node,int color,int [][] graph,boolean visited[],int colorDp[]){
+        Queue<Integer> queue = new LinkedList<>();
+        visited[node]=true;
+        colorDp[node]=color;
+        queue.add(node);
+        while(!queue.isEmpty()){
+            node = queue.poll();
+            color = colorDp[node];
+            for(int nbNode:graph[node]){
+                if(visited[nbNode]==false){
+                    visited[nbNode]=true;
+                    colorDp[nbNode]=1-color;
+                    queue.add(nbNode);
+                }else if(colorDp[nbNode] == color){ // parent and child color can't be same
+                    return true;
+                }
             }
         }
         return false;
