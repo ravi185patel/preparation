@@ -1,6 +1,8 @@
 package career.datastructure.graph.cycle;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class DetectCycleInGraph {
     public static void main(String[] args) {
@@ -24,12 +26,13 @@ public class DetectCycleInGraph {
 //            index++;
 //        }
         System.out.println(detectCycleUsingDfs(adj,visited));
+        Arrays.fill(visited,false);
+        System.out.println(detectCycleUsingBfs(adj,visited));
 
     }
 
     private static boolean detectCycleUsingDfs(int[][] adj,boolean visited[]){
         for(int i=0;i<adj.length;i++){
-            System.out.println(i);
             if(visited[i]==false && dfs(i,i,adj,visited)){
                 return true;
             }
@@ -72,5 +75,40 @@ public class DetectCycleInGraph {
         }
         return false;
     }
-    
+
+
+    private static boolean detectCycleUsingBfs(int[][] adj,boolean visited[]){
+        for(int i=0;i<adj.length;i++){
+            System.out.println(i);
+            if(visited[i]==false && bfs(i,i,adj,visited)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean bfs(int node,int parent,int[][]adj,boolean visited[]){
+        int parentNode[]=new int[adj.length+1];
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{node,node});
+        parentNode[node]=node;
+        visited[node]=true;
+
+        while(!queue.isEmpty()){
+            int visit[] = queue.remove();
+            node = visit[0];
+            parent = visit[1];
+            parent = parentNode[node];
+            for(int nbNode:adj[node]){
+                if(visited[nbNode]==false){
+                    parentNode[nbNode] = node;
+                    visited[nbNode] = true;
+                    queue.add(new int[]{nbNode,node});
+                }else if(parent != nbNode){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
