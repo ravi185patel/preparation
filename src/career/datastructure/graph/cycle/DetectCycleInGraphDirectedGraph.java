@@ -6,8 +6,8 @@ import java.util.Queue;
 
 public class DetectCycleInGraphDirectedGraph {
     public static void main(String[] args) {
-//        int adj[][]={{1}, {2}, {3}, {3}};
-        int adj[][]={{1}, {}, {1}}; // case where detect cycle in undirected graph won't work for directed
+        int adj[][]={{1}, {2}, {3}, {3}};
+//        int adj[][]={{1}, {}, {1}}; // case where detect cycle in undirected graph won't work for directed
 //        int adj[][]={{1}, {2}, {1}};
 //        int adj[][]={{1}, {}, {1}};
 //        int adj[][]={{1}, {}, {1}};
@@ -35,6 +35,7 @@ public class DetectCycleInGraphDirectedGraph {
         System.out.println(detectCycleUsingDfs(adj,visited,pathVisited));
         Arrays.fill(visited,false);
         System.out.println(detectCycleUsingBfs(adj,visited,pathVisited));
+        System.out.println(detectCycleUsingBfsTopoSort(adj,visited,pathVisited));
 
     }
 
@@ -98,4 +99,36 @@ public class DetectCycleInGraphDirectedGraph {
         pathVisited[node]=false;
         return false;
     }
+
+    private static boolean detectCycleUsingBfsTopoSort(int[][] adj,boolean visited[],boolean pathVisited[]) {
+        int v = adj.length;
+        int inDegree[]=new int[v];
+        for(int i=0;i<v;i++){
+            for(int nbNode:adj[i]){
+                inDegree[nbNode]++;
+            }
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i=0;i<v;i++){
+            if(inDegree[i] == 0){
+                queue.add(i);
+            }
+        }
+
+        int visitedNode =0;
+        while(!queue.isEmpty()){
+            int node = queue.poll();
+            visitedNode++;
+            for(int nbNode:adj[node]){
+                inDegree[nbNode]--;
+                if(inDegree[nbNode] == 0){
+                    queue.add(nbNode);
+                }
+            }
+        }
+
+        return visitedNode != v;
+    }
+
 }
