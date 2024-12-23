@@ -2,7 +2,7 @@ package career.datastructure.graph.template;
 
 public class DisJoinUnion {
         int parent[];
-        int size[];
+        public int size[];
         int rank[];
 
         public DisJoinUnion(int cap){
