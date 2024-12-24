@@ -1,4 +1,4 @@
-package career.datastructure.graph;
+package career.datastructure.graph.other;
 
 import java.util.ArrayList;
 import java.util.HashSet;
