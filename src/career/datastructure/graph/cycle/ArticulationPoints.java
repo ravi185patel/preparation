@@ -2,6 +2,15 @@ package career.datastructure.graph.cycle;
 
 import java.util.ArrayList;
 
+/*
+Articulation points represent vulnerabilities in a connected network – single points whose failure would split the network into 2 or more components.
+They are useful for designing reliable networks.
+
+Need to understand first bridge and tarjan algorithm
+
+https://www.youtube.com/watch?v=jFZsDDB0-vo
+
+ */
 public class ArticulationPoints {
 
     public static void main(String[] args) {
