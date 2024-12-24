@@ -16,7 +16,10 @@ class Pair{
 
 public class ShortestPathWgUg {
     public static void main(String[] args) {
-
+        int graph[][] =
+                {{1,2,2}, {1,4,1}, {2,1,2}, {2,3,4}, {2,5,5}, {3,2,4}, {3,4,3}, {3,5,1}, {4,1,1}, {4,3,3}, {5,2,5}, {5,3,1}};
+        List<Integer> ls =shortestPath(5,12,graph);
+        System.out.println(ls);
     }
     public static List<Integer> shortestPath(int n, int m, int edges[][]) {
 
@@ -68,8 +71,14 @@ public class ShortestPathWgUg {
             return path;
         }
 
+        System.out.println(Arrays.toString(parent));
+        System.out.println(Arrays.toString(dist));
         int node = n;
 
+        /*
+         very important part where asked for find path.
+         it has been used in many problems to find path or say print path.
+         */
         while(parent[node] != node) {
             path.add(node);
             node = parent[node];

@@ -69,7 +69,8 @@ public class DijkstraAlgo {
         }
 
         for(int i=0;i<graph.length;i++){
-           adjList.get(graph[i][0]).add(new int[]{graph[i][1],graph[i][2]});
+           adjList.get(graph[i][0]).add(new int[]{graph[i][1],graph[i][2]}); // for directed
+//            adjList.get(graph[i][1]).add(new int[]{graph[i][0],graph[i][2]}); // both for undirected
         }
     }
 
