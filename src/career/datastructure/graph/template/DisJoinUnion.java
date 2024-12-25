@@ -1,9 +1,10 @@
 package career.datastructure.graph.template;
 
 public class DisJoinUnion {
-        int parent[];
+        public int parent[];
         public int size[];
         int rank[];
+        public int islandCount;
 
         public DisJoinUnion(int cap){
             parent = new int[cap];
@@ -38,13 +39,14 @@ public class DisJoinUnion {
             if(xParent == yParent){
                 return;
             }
-            if(rank[xParent] >= rank[yParent]){
+            if(rank[xParent] > rank[yParent]){
                 // why assign higher rank parent to lower rank parent:- to reduce height of tree as much as possible.
-                rank[xParent] += rank[yParent];
                 parent[yParent]=xParent;
-            }else{
-                rank[yParent] += rank[xParent];
+            }else if(rank[xParent] < rank[yParent]){
                 parent[xParent]=yParent;
+            }else{
+                parent[yParent] = xParent;
+                rank[xParent]++;
             }
             //etc code will be added based on problem condition
         }
@@ -64,5 +66,6 @@ public class DisJoinUnion {
                 parent[xParent]=yParent;
             }
             //etc code will be added based on problem condition
+            islandCount--;
         }
 }
