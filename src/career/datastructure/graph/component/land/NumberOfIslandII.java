@@ -182,11 +182,6 @@ public class NumberOfIslandII {
         return answer;
     }
 
-    private static int findDistance(int p1[],int p2[]){
-        return Math.abs(p1[0]-p2[0])+Math.abs(p1[1]-p2[1]);
-    }
-
-
     private static void dfs(int m,int n,int xNode,int yNode){
         if(xNode >= m || yNode >= n || xNode < 0 || yNode < 0 || visited[xNode][yNode]
         || grid[xNode][yNode]==0){
