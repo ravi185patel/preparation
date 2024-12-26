@@ -91,15 +91,9 @@ public class NumberOfIslandII {
 //        int m = 2, n = 2, positions[][] ={{0,0},{1,1},{0,1}};
           int m = 3, n = 3, positions[][] = {{0,0},{0,1},{1,2},{1,2}};
 
-//        Arrays.sort(positions,(p1,p2) ->{
-//            int diff = p1[0]-p2[0];
-//            if(diff == 0){
-//                return p1[1]-p2[1];
-//            }
-//            return diff;
-//        });
 //        List<Integer> res = numIslands2(m,n,positions);
 //        System.out.println(res);
+
         List<Integer> res = new ArrayList<>();
         initData(m,n);
         int noOfIsland = 0;
@@ -107,7 +101,9 @@ public class NumberOfIslandII {
             int xNode = position[0];
             int yNode = position[1];
             updateData(xNode,yNode);
-//            dfsOnGrid(res); // time limit problem
+            dfsOnGrid(res); // time limit problem
+            /*
+            not work as expected -> many tests are failed.
             int coverLand=0;
             boolean flag = false;
             for(int dir[]:directions) {
@@ -125,7 +121,7 @@ public class NumberOfIslandII {
             }else{
                 noOfIsland = noOfIsland + 1;
             }
-            res.add(noOfIsland);
+            res.add(noOfIsland);*/
         }
         System.out.println(res);
     }
@@ -157,7 +153,7 @@ public class NumberOfIslandII {
 
     public static void updateData(int x,int y){
         grid[x][y] = 1;
-        visited[x][y]=true;
+//        visited[x][y]=true; // many test cases failed
     }
 
     public static List<Integer> numIslands2(int m, int n, int[][] positions) {
