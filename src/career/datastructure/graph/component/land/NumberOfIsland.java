@@ -5,6 +5,23 @@ import career.datastructure.graph.template.DisJoinUnion;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+Number of Islands
+
+clarification question
+1] it is matrix so what will be size n*m or n*n ?
+2] what will be shape of area square or rectangle
+3] how many directions like 4 direction or 8 directions
+
+Approach
+1] dfs => tc = O(M*N) sc=O(M+N)
+2] bfs => tc = O(M*N) sc=O(M+N)
+3] union find => tc = O(M*N) sc=O(M*N)
+
+Implement which is easy for you not for interviewer.
+If interviewer ask to implement then you have to know all of above implementation
+
+ */
 public class NumberOfIsland {
     static int islandCount=0;
     public static void main(String[] args) {
