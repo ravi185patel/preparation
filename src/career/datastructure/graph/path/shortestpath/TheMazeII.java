@@ -1,4 +1,4 @@
-package career.datastructure.graph.path;
+package career.datastructure.graph.path.shortestpath;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -30,21 +30,21 @@ public class TheMazeII {
 //                start[]={0,4},
 //                destination[]={1,2};
 
+//        System.out.println(hasPathDfs(maze,start,destination));
         System.out.println(hasPathBfs(maze,start,destination));
-        System.out.println(hasPathDfs(maze,start,destination));
     }
 
-    static int directions[][]={{-1,0},{0,-1},{0,1},{1,0}};
-    static boolean visited[][];
-    static int m,n;
+//    static int directions[][]={{-1,0},{0,-1},{0,1},{1,0}};
+//    static boolean visited[][];
+//    static int m,n;
 
-    public static boolean hasPathBfs(int[][] maze, int[] start, int[] destination) {
-        int row = maze.length;
-        int col = maze[0].length;
-        boolean[][] visited = new boolean[row][col];
-        return dfs(maze, start, destination, visited);
-    }
-    public static int hasPathDfs(int[][] maze, int[] start, int[] destination) {
+//    public static int hasPathDfs(int[][] maze, int[] start, int[] destination) {
+//        int row = maze.length;
+//        int col = maze[0].length;
+//        boolean[][] visited = new boolean[row][col];
+//        return dfs(maze, start, destination, visited);
+//    }
+    public static int hasPathBfs(int[][] maze, int[] start, int[] destination) {
         distance = new int[maze.length][maze[0].length];
         for (int[] row: distance)
             Arrays.fill(row, Integer.MAX_VALUE);
@@ -84,33 +84,33 @@ public class TheMazeII {
         return x >= 0 && y >= 0 && x<maze.length && y<maze[0].length && maze[x][y]==0;
     }
 
-    private static boolean dfs(int[][] maze, int[] start, int[] destination, boolean[][] visited) {
-        int[][] dirs = {{1,0},{-1,0},{0,1},{0,-1}};
-
-        int x = start[0];
-        int y = start[1];
-        if (x == destination[0] && y == destination[1]) {
-            return true;
-        }
-        visited[x][y] = true;
-
-        for (int[] dir : dirs) {
-            int newx = x;
-            int newy = y;
-            while (isValid(newx + dir[0], newy + dir[1], maze) &&
-                    maze[newx + dir[0]][newy + dir[1]] == 0) {
-                newx = newx + dir[0];
-                newy = newy + dir[1];
-            }
-            if (!visited[newx][newy]) {
-                int[] next = new int[]{newx, newy};
-                if (dfs(maze, next, destination, visited)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+//    private static int dfs(int[][] maze, int[] start, int[] destination, boolean[][] visited) {
+//        int[][] dirs = {{1,0},{-1,0},{0,1},{0,-1}};
+//
+//        int x = start[0];
+//        int y = start[1];
+//        if (x == destination[0] && y == destination[1]) {
+//            return 0;
+//        }
+//        visited[x][y] = true;
+//
+//        for (int[] dir : dirs) {
+//            int newx = x;
+//            int newy = y;
+//            while (isValid(newx + dir[0], newy + dir[1], maze) &&
+//                    maze[newx + dir[0]][newy + dir[1]] == 0) {
+//                newx = newx + dir[0];
+//                newy = newy + dir[1];
+//            }
+//            if (!visited[newx][newy]) {
+//                int[] next = new int[]{newx, newy};
+//                if (dfs(maze, next, destination, visited)) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
 
     private static boolean isValid(int x, int y, int[][] maze) {
         return x >= 0 && x < maze.length && y >= 0 && y < maze[0].length;

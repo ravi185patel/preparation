@@ -1,4 +1,4 @@
-package career.datastructure.graph.path;
+package career.datastructure.graph.path.shortestpath;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -11,6 +11,12 @@ import java.util.PriorityQueue;
 3] union disjoint -> O(m.n.log(m.n)) - O(m.n)
 4] binary search with bfs -> O(m.n) - O(m.n)
 5] binary search with dfs -> O(m.n) - O(m.n)
+
+
+  same approach as in maze but here we have not uniform weight
+  so we used pq
+  here we check diff and used min diff to get point.
+
  */
 public class PathWithMinEffort {
     public static void main(String[] args) {

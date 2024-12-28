@@ -1,4 +1,4 @@
-package career.datastructure.graph.path;
+package career.datastructure.graph.path.shortestpath;
 
 import java.util.*;
 

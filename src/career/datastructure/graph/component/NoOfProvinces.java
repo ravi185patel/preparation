@@ -50,14 +50,15 @@ public class NoOfProvinces {
         // if you add else with return it will end execution of dfs after first leaf node.
     }
     private static void bfs(int node,boolean visited[]){
-        visited[node]= true;
         Queue<Integer> queue = new LinkedList<>();
         queue.add(node);
+        visited[node]= true;
         while(!queue.isEmpty()){
             node =queue.poll();
             for(int nbNode:adjList.get(node)){
                 if(visited[nbNode] == false){
-                    dfs(nbNode,visited);
+                    visited[nbNode]= true;
+                    queue.add(nbNode);
                 }
             }
         }

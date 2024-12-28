@@ -122,7 +122,7 @@ public class MaxAreaOfIsland {
         int land=0;
         while(!queue.isEmpty()){
             int node[]=queue.poll();
-            land++;
+            land++;// count (1 cover)
             for(int dir[]:new int[][]{{-1,0},{0,-1},{1,0},{0,1}}){
                 x = dir[0]+node[0];
                 y = dir[1] + node[1];
