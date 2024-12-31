@@ -1,4 +1,4 @@
-package career.website.leetcode.string.medium;
+package career.datastructure.string;
 
 public class MakeStringsEqual {
     public static void main(String[] args) {

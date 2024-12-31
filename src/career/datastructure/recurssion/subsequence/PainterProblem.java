@@ -1,4 +1,4 @@
-package career.datastructure.recurssion;
+package career.datastructure.recurssion.subsequence;
 
 import java.util.Arrays;
 

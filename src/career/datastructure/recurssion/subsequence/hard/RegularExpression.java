@@ -1,4 +1,4 @@
-package career.datastructure.recurssion.striver;
+package career.datastructure.recurssion.subsequence.hard;
 
 public class RegularExpression {
     public static void main(String[] args) {

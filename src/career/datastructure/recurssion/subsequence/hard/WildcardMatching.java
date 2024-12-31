@@ -1,4 +1,4 @@
-package career.datastructure.recurssion.striver.subsetAndCombinnation;
+package career.datastructure.recurssion.subsequence.hard;
 
 public class WildcardMatching {
     public static void main(String[] args) {

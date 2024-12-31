@@ -1,4 +1,4 @@
-package career.datastructure.recurssion;
+package career.datastructure.recurssion.subsequence;
 
 public class HouseRobberII {
     public static void main(String[] args) {

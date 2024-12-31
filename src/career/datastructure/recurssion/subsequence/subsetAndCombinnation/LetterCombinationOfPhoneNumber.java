@@ -1,6 +1,5 @@
-package career.datastructure.recurssion.striver.subsetAndCombinnation;
+package career.datastructure.recurssion.subsequence.subsetAndCombinnation;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 

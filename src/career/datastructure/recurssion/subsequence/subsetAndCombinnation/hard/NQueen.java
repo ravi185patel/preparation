@@ -1,4 +1,4 @@
-package career.datastructure.recurssion.striver.subsetAndCombinnation;
+package career.datastructure.recurssion.subsequence.subsetAndCombinnation.hard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
