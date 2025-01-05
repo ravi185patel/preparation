@@ -1,5 +1,8 @@
 package career.datastructure.segmenttree;
 
+/*
+https://leetcode.com/problems/range-sum-query-mutable/
+ */
 class NumArray {
 
     int[] tree;

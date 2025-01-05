@@ -10,9 +10,9 @@ public class TopoSortUsingDFSAndBFS_KahnAlgo {
 //        int [][]adj = {{}, {0}, {0}, {0}};
         int [][]adj =  {{}, {3}, {3}, {}, {0,1}, {0,2}};
         boolean visited[]=new boolean[adj.length];
-        dfsTopoSort(adj,visited);
+        dfsTopoSort(adj,visited); // graph -> indegree - toposort -> flow -> dfs/bfs
         Arrays.fill(visited,false);
-        bfsTopoSort(adj,visited);
+        bfsTopoSort(adj,visited);  //
     }
 
     private static void dfsTopoSort(int[][]adj,boolean visited[]){
