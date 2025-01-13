@@ -73,7 +73,6 @@ public class JumpGameVII {
 
         memo[index]=-1;
         return false;
-
     }
 
     private static boolean dfsDp(char strChar[],int minJump,int maxJump,int memo[]){

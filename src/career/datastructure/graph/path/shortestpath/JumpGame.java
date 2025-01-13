@@ -23,7 +23,8 @@ but all combinations will be tried.
 
 Index	0	1	2	3	4	5	6
 nums	5	4	3	2	1	0	0
-The first few steps of the backtracking algorithm for the example above are: 0 -> 4 -> 5 -> 4 -> 0 -> 3 -> 5 -> 3 -> 4 -> 5 -> etc.
+The first few steps of the backtracking algorithm for the example above are:
+0 -> 4 -> 5 -> 4 -> 0 -> 3 -> 5 -> 3 -> 4 -> 5 -> etc.
 
 Space complexity : O(n). Recursion requires additional memory for the stack frames.
 
@@ -96,7 +97,7 @@ public class JumpGame {
             }
         }
 
-        return false;
+        return memo[index]=false;
 
     }
 
@@ -113,10 +114,16 @@ public class JumpGame {
             }
         }
         return memo[nums.length-1];
+
     }
 
 
     private static boolean greedy(int nums[]){
+        /*
+           compare max with current index
+           when current index is more than max which means it is not reachable
+           from previous index.
+         */
         int maxRes=0;
         for(int index=0;index < nums.length;index++){
             if(index > maxRes) return false;
