@@ -112,7 +112,7 @@ public class CoinChangeI {
                 int noTake = prev[target];
                 int take = (int)(1e9);
                 if(target >= coins[i]){
-                    take = 1 + curr[target-coins[i]];
+                    take = 1 + curr[target-coins[i]]; // previous + curr to achieve target
                 }
                 curr[target] = Math.min(take,noTake);
             }

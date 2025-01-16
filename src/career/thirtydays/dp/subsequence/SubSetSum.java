@@ -22,8 +22,7 @@ public class SubSetSum {
 
         for(int i=1;i<arr.length;i++){
             boolean curr[] = new boolean[target+1];
-            curr[0] = true;
-            for(int j=1;j<=target;j++){
+            for(int j=0;j<=target;j++){
                 boolean noTaken = prev[j]; // prev means previous calculated row
                 boolean taken = false;
                 if(j >= arr[i]){
