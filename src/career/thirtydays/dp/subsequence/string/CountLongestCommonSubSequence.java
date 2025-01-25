@@ -7,49 +7,49 @@ https://leetcode.com/problems/longest-common-subsequence/description/
  */
 public class CountLongestCommonSubSequence {
     public static void main(String[] args) {
-//        System.out.println(longestCommonSubsequence("abc","ab"));
-//        System.out.println(longestCommonSubsequence("abc","de"));
-//        System.out.println(longestCommonSubsequence("abc","cba"));
-//        System.out.println(longestCommonSubsequence("a","bca"));
-//
-//        System.out.println(longestCommonSubsequence("abcde","ace"));
-//        System.out.println(longestCommonSubsequence("abc","abc"));
-//        System.out.println(longestCommonSubsequence("abaaa","baabaca"));
-        System.out.println(longestCommonSubsequence("abcabcaa","acbacba"));
-    }
-
-    public static int longestCommonSubsequence(String s, String t) {
-        return longestCommonSubsequenceDp(s,t);
-    }
-
-    private static int longestCommonSubsequenceDp(String s,String t){
-        int m = s.length();
-        int n = t.length();
-        int dp[][]=new int[m+1][n+1];
-
+        System.out.println(countLCS("aaabcde","ace"));
+        System.out.println(countLCS("AGGTAB","GXTXAYB"));
         /*
-        recursion condition
-        here we increment 1 only when previous index got matched.
-        if(s.charAt(indexS) == t.charAt(indexT)){
-            return 1 + findSequence(s,t,indexS+1,indexT+1);
-        }else{
-            return Math.max(findSequence(s,t,indexS+1,indexT),findSequence(s,t,indexS,indexT+1));
-        }
+        "GTAB"
+        "GXAB"
          */
+    }
 
-        for(int i=1;i<=m;i++){
-            for(int j=1;j<=n;j++){
-                if(s.charAt(i-1) == t.charAt(j-1)){
-                    dp[i][j] = 1 + dp[i-1][j-1];
-                }else{
-                    dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]);
+    public static int countLCS(String A, String B) {
+        int m = A.length(), n = B.length();
+
+        // Initialize dp and count arrays
+        int[][] dp = new int[m + 1][n + 1];
+        int[][] count = new int[m + 1][n + 1];
+
+        // Fill dp and count arrays
+        for (int i = 0; i <= m; i++) {
+            for (int j = 0; j <= n; j++) {
+                if (i == 0 || j == 0) {
+                    dp[i][j] = 0;
+                    count[i][j] = 1;  // There's one way to have an LCS of length 0
+                } else if (A.charAt(i - 1) == B.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                    count[i][j] = count[i - 1][j - 1];  // Carry over count from previous diagonal
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    if (dp[i][j] == dp[i - 1][j]) {
+                        count[i][j] += count[i - 1][j];
+                    }
+                    if (dp[i][j] == dp[i][j - 1]) {
+                        count[i][j] += count[i][j - 1];
+                    }
+                    if (dp[i - 1][j] == dp[i][j - 1]) {
+                        count[i][j] -= count[i - 1][j - 1]; // Avoid double counting
+                    }
                 }
             }
         }
 
+        // The result is the number of LCS of length dp[m][n]
         for(int me[]:dp){
             System.out.println(Arrays.toString(me));
         }
-        return dp[m][n];
+        return count[m][n];
     }
 }

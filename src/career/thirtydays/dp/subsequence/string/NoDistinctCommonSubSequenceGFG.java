@@ -1,5 +1,6 @@
 package career.thirtydays.dp.subsequence.string;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,11 +12,15 @@ https://www.geeksforgeeks.org/problems/number-of-distinct-subsequences0909/1?itm
 2] dp
  -> frequency of character
 
+solution
+https://www.geeksforgeeks.org/count-distinct-subsequences/
  */
 public class NoDistinctCommonSubSequenceGFG {
     public static void main(String[] args) {
         System.out.println(distinctSubsequence("gfg"));
         System.out.println(distinctSubsequence("ggg"));
+        System.out.println(distinctSubsequences("ggg"));
+        System.out.println(distinctSubsequences("gfg"));
     }
 
     public static int distinctSubsequence(String s) {
@@ -32,41 +37,41 @@ public class NoDistinctCommonSubSequenceGFG {
         }
     }
 
-    private static int countCommonSubsequenceDp(String s,String t){
-        int m = s.length();
-        int n = t.length();
-        int dp[][]=new int[m+1][n+1];
+    private static int distinctSubsequences(String S) {
+        // Create an array to store index
+        // of last
+        int[] last = new int[26];
+        Arrays.fill(last, -1);
 
+        int mod = 1000000007;
 
-        /*
+        // Length of input string
+        int n = S.length();
 
-        if(s == 0 || t == 0){
-           return t == 0 ? 1:0;
+        // dp[i] is going to store count of distinct
+        // subsequences of length i.
+        int[] dp = new int[n + 1];
+
+        // Empty substring has only one subsequence
+        dp[0] = 1;
+
+        // Traverse through all lengths from 1 to n.
+        for (int i = 1; i <= n; i++) {
+            // Number of subsequences with substring
+            // S[0..i-1]
+            dp[i] = 2 * dp[i - 1];
+            dp[i] %= mod;
+
+            // If current character has appeared
+            // before, then remove all subsequences
+            // ending with previous occurrence.
+            if (last[S.charAt(i - 1)-'a'] != -1)
+                dp[i] = (dp[i] - dp[last[S.charAt(i - 1)-'a']] + mod) % mod;
+
+            // Mark occurrence of current character
+            last[S.charAt(i - 1)-'a'] = (i - 1);
         }
 
-        int taken =0;
-        if(matched){
-            taken = lcs(s+1,t+1);
-        }
-        untaken = lcs(s+1,t);
-        return taken + untaken;
-
-         */
-        for(int i=0;i<m;i++){
-            dp[i][0]=1;
-        }
-
-        for(int i=1;i<=m;i++){
-            for(int j=1;j<=n;j++){
-                int noTake = dp[i-1][j];
-                int take = 0;
-                if(s.charAt(i-1) == t.charAt(j-1)){
-                    take = dp[i-1][j-1];
-                }
-                dp[i][j]= noTake + take;
-            }
-        }
-
-        return dp[m][n];
+        return dp[n];
     }
 }
