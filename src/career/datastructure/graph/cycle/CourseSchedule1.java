@@ -55,7 +55,8 @@ public class CourseSchedule1 {
                 if(dfs(nbCourse,visited,pathVisited)){
                     return true;
                 }
-            }else if(pathVisited[nbCourse]){
+            }else if(pathVisited[nbCourse]){ // why this code ?
+                // it is for detect cycle in directed graph. there may be cycle between course.
                 return true;
             }
         }

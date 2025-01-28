@@ -6,12 +6,14 @@ public class CourseScheduleII {
     /*
      clarification
      0] it is directed graph.
-     1] there may be two or more course which are not depend on each other. i.e a->b , c->d, e->f
+     1] there may be two or more course which are not depend on each other.
+     i.e a->b , c->d, e->f
      2] Is there any cycle between course. i.e a->b->a
      3] What output needed. true -> to complete all courses, path/order -> in which it is completed
 
      Approach
-     1] DFS -> start with one course and complete single depend course each time. tc = O(N*N) sc= O(N)
+     1] DFS -> start with one course and complete single depend course each time.
+     tc = O(N*N) sc= O(N)
      2] BFS -> start with one course and complete TC = O(N*N) sc=O(N)
      3] TOPOSORT + bfs/dfs -> calculate inDegree TC = O(N*N) sc=O(N+N)
      4] Union Disjoint -> connect each course and find connected component -> TC = O(N*N) sc=O(N+N+N)
@@ -26,10 +28,10 @@ public class CourseScheduleII {
     static int noOfcourses=0;
     public static void main(String[] args) {
 //        int numCourses = 2, prerequisites[][] = {{1,0},{0,1}};
-//        int numCourses = 4,prerequisites[][] = {{1, 0},{2, 0},{3, 1},{3, 2}};
+        int numCourses = 4,prerequisites[][] = {{1, 0},{2, 0},{3, 1},{3, 2}};
 //        int  numCourses = 1, prerequisites[][] = {};
 //        int numCourses = 2, prerequisites[][] = {{1,0}};
-        int numCourses = 25 , prerequisites[][] = {{10, 18},{0, 18},{10, 6},{16, 0},{8, 7},{19, 15},{24, 16},{20, 14},{1, 17},{14, 13},{21, 21},{19, 22},{23, 20},{10, 5}};
+//        int numCourses = 25 , prerequisites[][] = {{10, 18},{0, 18},{10, 6},{16, 0},{8, 7},{19, 15},{24, 16},{20, 14},{1, 17},{14, 13},{21, 21},{19, 22},{23, 20},{10, 5}};
         boolean visited[] = new boolean[numCourses];
         boolean pathVisited[]=new boolean[numCourses];
         Stack<Integer> stack = new Stack<>();
