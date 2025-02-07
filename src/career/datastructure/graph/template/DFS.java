@@ -24,7 +24,16 @@ public class DFS {
         for(int nbNode:adj[node]){
             if(visited[nbNode] == false){
                 dfs(nbNode,adj,lst,visited);  //visited nb point of node.
+
+                /*
+                    if(dfs(nbNode,adj,lst,visited)){
+                    // terminate execution for other child of parent after find path or condition
+                    // satisfied
+                        return true;
+                    }
+                */
             }
         }
     }
+
 }

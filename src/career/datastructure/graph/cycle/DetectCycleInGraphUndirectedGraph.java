@@ -57,7 +57,8 @@ public class DetectCycleInGraphUndirectedGraph {
                     return true;
                 }
                 /* why below code is not work
-                here when reach to leaf node it will return false and due to return statement inside loop
+                here when reach to leaf node it will return false
+                and due to return statement inside loop
                 execution for other child is not run and due to this other is not marked visited
                 and when start recursion using same node, encounter other visited node where
                 below parent != nbNode become true which is wrong
