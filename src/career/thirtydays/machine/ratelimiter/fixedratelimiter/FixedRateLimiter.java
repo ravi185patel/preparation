@@ -1,6 +1,7 @@
 package career.thirtydays.machine.ratelimiter.fixedratelimiter;
 
 
+import career.thirtydays.machine.ratelimiter.RateLimiterI;
 import career.thirtydays.machine.ratelimiter.model.RequestInfo;
 
 import java.util.HashMap;
@@ -13,10 +14,7 @@ import java.util.concurrent.TimeUnit;
 copied from chat gpt
  */
 
-interface FixedRateLimiterI{
-    public boolean isRequestAllowed(String userId);
-}
-class FixedRateLimiterUsingHashMap implements  FixedRateLimiterI{
+class FixedRateLimiterUsingHashMap implements RateLimiterI {
     private static final int FIXED_WINDOW_SIZE = 60000;
     private static final int MAX_REQUEST = 5;
 
@@ -44,7 +42,7 @@ class FixedRateLimiterUsingHashMap implements  FixedRateLimiterI{
     }
 }
 
-class FixedRateLimiterUsingConcurrentHashMap implements  FixedRateLimiterI{
+class FixedRateLimiterUsingConcurrentHashMap implements  RateLimiterI{
     private static final int FIXED_WINDOW_SIZE = 600;
     private static final int MAX_REQUEST = 5;
 
@@ -74,7 +72,7 @@ class FixedRateLimiterUsingConcurrentHashMap implements  FixedRateLimiterI{
 }
 
 
-class FixedRateLimiterUsingObjectLevelLock implements  FixedRateLimiterI{
+class FixedRateLimiterUsingObjectLevelLock implements  RateLimiterI{
     private static final int FIXED_WINDOW_SIZE = 600;
     private static final int MAX_REQUEST = 5;
 
@@ -108,7 +106,7 @@ class FixedRateLimiterUsingObjectLevelLock implements  FixedRateLimiterI{
     }
 }
 
-class FixedRateLimiterUsingScheduleExecutor implements  FixedRateLimiterI{
+class FixedRateLimiterUsingScheduleExecutor implements  RateLimiterI{
     private static final int FIXED_WINDOW_SIZE = 600;
     private static final int MAX_REQUEST = 5;
 
@@ -151,10 +149,10 @@ public class FixedRateLimiter {
 
     public static void main(String[] args) {
 
-        FixedRateLimiterI rateLimiter = null;
+        RateLimiterI rateLimiter = null;
 /*
 
-        FixedRateLimiterI rateLimiter = new FixedRateLimiterUsingHashMap();
+        RateLimiterI rateLimiter = new FixedRateLimiterUsingHashMap();
         singleThreadEnv(rateLimiter); // 100 user worked
         System.out.println(" In multi thread env");
         multiThreadEnv(rateLimiter); // not worked for 100 user
@@ -191,11 +189,11 @@ public class FixedRateLimiter {
         multiThreadEnv(rateLimiter); // not worked for 100 user
     }
 
-    public static void singleThreadEnv(FixedRateLimiterI fixedRateLimiterI){
+    public static void singleThreadEnv(RateLimiterI RateLimiterI){
         String userId = "user1";
 
         for (int i = 0; i < 10; i++) {
-            if (fixedRateLimiterI.isRequestAllowed(userId)) {
+            if (RateLimiterI.isRequestAllowed(userId)) {
                 System.out.println("Request " + (i + 1) + " allowed");
             } else {
                 System.out.println("Request " + (i + 1) + " denied");
@@ -203,14 +201,14 @@ public class FixedRateLimiter {
         }
     }
 
-    public static void multiThreadEnv(FixedRateLimiterI fixedRateLimiterI){
+    public static void multiThreadEnv(RateLimiterI RateLimiterI){
         String userId = "user2";
 
         // Simulate requests from different threads
         for (int i = 0; i < 10; i++) {
             final int requestNumber = i + 1;
             new Thread(() -> {
-                if (fixedRateLimiterI.isRequestAllowed(userId)) {
+                if (RateLimiterI.isRequestAllowed(userId)) {
                     System.out.println("Request " + requestNumber + " allowed");
                 } else {
                     System.out.println("Request " + requestNumber + " denied");
