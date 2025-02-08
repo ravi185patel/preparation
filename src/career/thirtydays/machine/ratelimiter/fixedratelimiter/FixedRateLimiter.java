@@ -179,16 +179,16 @@ public class FixedRateLimiter {
 */
 
         rateLimiter = new FixedRateLimiterUsingScheduleExecutor();
-        singleThreadEnv(rateLimiter); // 100 user worked
+//        singleThreadEnv(rateLimiter); // 100 user worked
 //        System.out.println(" In multi thread env");
-//        multiThreadEnv(rateLimiter); // not worked for 100 user
+        multiThreadEnv(rateLimiter); // not worked for 100 user
         // Sleep for a while to let window reset (you can adjust the duration as needed)
         try {
-            Thread.sleep(10 * 2); // Let the window reset twice
+            Thread.sleep(1000 * 2); // Let the window reset twice
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-
+        multiThreadEnv(rateLimiter); // not worked for 100 user
     }
 
     public static void singleThreadEnv(FixedRateLimiterI fixedRateLimiterI){
