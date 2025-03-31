@@ -21,7 +21,15 @@ public class DisJoinUnion {
             if(x == parent[x]){
                 return x;
             }
-            return parent[x] = find(parent[x]);
+            return parent[x] = find(parent[x]); // path compression
+            /*
+            why ?
+            when we combine each of node to parent node.
+            at that movement you will check parent of each node.
+            And it repet work.
+            EX 4 is parent of 5 and 5 is parent of 6 ==> 4 <-5 and 5 <- 6;
+            Make it like 4 is parent 5 and 6 ==> 4 <- 5 and 4 <- 6;
+             */
         }
 
         public void union(int x,int y){

@@ -122,10 +122,10 @@ public class DetectCycleInGraphUndirectedGraph {
         // need to understand
         for(int node=0;node<adj.length;node++){
             for(int nbNode:adj[node]){
-                if( node < nbNode){
+                if( node < nbNode){  //0 -> 1 is already checked so why need to check for 1 > 0, so we skip below steps for 1 to 0
                     int xParent = ds.find(node);
                     int yParent = ds.find(nbNode);
-                    if(xParent == yParent){
+                    if(xParent == yParent){ // if parent is same for both node and nbNode then there is a cycle.
                         return true;
                     }
 

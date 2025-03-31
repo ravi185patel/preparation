@@ -1,6 +1,9 @@
 Solution
 Overview
-Let's try and rephrase the problem a bit to see what it means in terms of the given graph. We are given an undirected graph and are asked to find the number of bridges in the graph. A bridge is essentially an edge whose removal would make the graph disconnected. Let's look at a couple of example graphs where the bridges are marked.
+Let's try and rephrase the problem a bit to see what it means in terms of the given graph.
+We are given an undirected graph and are asked to find the number of bridges in the graph.
+A bridge is essentially an edge whose removal would make the graph disconnected.
+Let's look at a couple of example graphs where the bridges are marked.
 
 Graph and bridges
 

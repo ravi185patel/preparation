@@ -44,9 +44,9 @@ public class TopoSortUsingDFSAndBFS_KahnAlgo {
         int path[] = new int[adj.length];
         int inDegree[]=new int[adj.length];
 
-        for(int i=0;i<adj.length;i++){
-            for(int nbNode:adj[i]){
-                inDegree[nbNode]++;
+        for(int i=0;i<adj.length;i++){ // parent
+            for(int nbNode:adj[i]){// child
+                inDegree[nbNode]++; // inDegree of child become = parents (nb <- parent)
             }
         }
 

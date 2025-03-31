@@ -1,8 +1,15 @@
 package career.datastructure.graph.cycle;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+
+/*
+
+odd length cycle graph != bipartite graph
+even length cycle graph = bipartite graph
+
+Hint:
+Dividing a graph into 2 parts(grouping)
+ */
 
 public class IsBipratedGraph {
     public static void main(String[] args) {
@@ -36,7 +43,7 @@ public class IsBipratedGraph {
         colorDp[node]=color;
         for(int nbNode:graph[node]){
             if(visited[nbNode]==false){
-                visited[nbNode]=true;
+//                visited[nbNode]=true;
                 if(dfs(nbNode,1-color,graph,visited,colorDp)){
                     // traverse child with 0 color if parent has 1 and vice versa
                     // only skip call when node is already visited and have different color then parent.
@@ -70,5 +77,48 @@ public class IsBipratedGraph {
         }
         return false;
     }
-    
+
+    public boolean isBipartite(int[][] graph) {
+        List<List<Integer>> adj = new ArrayList<>();
+        int n = graph.length;
+        int m = graph[0].length;
+
+        for(int i=0;i<n;i++){
+            adj.add(new ArrayList<>());
+        }
+
+        for(int i=0;i<n;i++){
+            for(int nb:graph[i]){
+                adj.get(i).add(nb);
+                adj.get(nb).add(i);
+            }
+        }
+
+        int color[]=new int[n];
+        Arrays.fill(color,-1);
+
+        for(int i=0;i<n;i++){
+            if(color[i] == -1){
+                if(dfs(i,0,color,adj) == false){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean dfs(int node,int col,int color[],List<List<Integer>> adj){
+        color[node] = col;
+        for(int i:adj.get(node)){
+            if(color[i] == -1){
+                if(dfs(i,1-col,color,adj)== false){
+                    return false;
+                }
+            }else if(color[i] == col){
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

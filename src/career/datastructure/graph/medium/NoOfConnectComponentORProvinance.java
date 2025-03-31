@@ -26,7 +26,8 @@ public class NoOfConnectComponentORProvinance {
           for(int i=0;i<m;i++){
               if(visited[i] == false){
                   noOfComponent++;
-                  findNoOfConnectedComp(i,adjList,visited);
+//                  findNoOfConnectedComp(i,adjList,visited);
+                  findNoOfConnectedCompAd(i,adjList,visited);
               }
           }
           System.out.println(noOfComponent);
@@ -44,7 +45,7 @@ public class NoOfConnectComponentORProvinance {
 
     private static List<List<Integer>> createGraph(int m,int n,int[][]edges){
         List<List<Integer>> adjList = new ArrayList<>();
-        for(int i=1;i<=m;i++){
+        for(int i=1;i<=m;i++){ // node start from 1 to M to be very carefully to pick
             adjList.add(new ArrayList<>());
         }
 
@@ -73,5 +74,23 @@ public class NoOfConnectComponentORProvinance {
                 }
             }
         }
+    }
+
+    private static void findNoOfConnectedCompAd(int start,
+                                              List<List<Integer>> adjList,
+                                              boolean visited[]){
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(start);
+        visited[start]= true;
+        while(!queue.isEmpty()){
+            int node= queue.poll();
+            for(int nbNode:adjList.get(node)){
+                if(visited[nbNode]== false){
+                    visited[nbNode]= true;
+                    queue.add(nbNode);
+                }
+            }
+        }
+
     }
 }
