@@ -1,8 +1,6 @@
 package career.sixmonthssep.sw.substring;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /*
 https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/description/
@@ -14,6 +12,37 @@ public class LongestSubStrWithAtLeastKRepChar {
 //        System.out.println(longestSubstring("aaaaa",3));
         System.out.println(longestSubstring("bbaaacbd",3));
         System.out.println(longestSubstringBf("bbaaacbd",3));
+        System.out.println(longestSubstring("aaaaa",3));
+        System.out.println(longestSubstringBf("aaaaa",3));
+    }
+
+    public static int longestSubStringBF(String s,int k){
+        int freq[]=new int[26];
+        int length = s.length();
+        int maxLength=0;
+        for(int i=0;i<length;i++){
+            Arrays.fill(freq,0);
+            for(int j=i;j<length;j++) {
+                int index = s.charAt(j) - 'a';
+                freq[index]++;
+                if(freq[index] >= k){
+                    if(isAllAboveK(freq,k)){
+                        maxLength = Math.max(maxLength,j-i+1);
+                    }
+                }
+            }
+
+        }
+        return maxLength;
+    }
+
+    private static boolean isAllAboveK(int freq[],int k){
+        for(int i:freq){
+            if(i!=0 && i <k){
+                return false;
+            }
+        }
+        return true;
     }
     public static int longestSubstring(String s, int k) {
         char[] str = s.toCharArray();

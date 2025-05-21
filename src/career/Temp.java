@@ -1,51 +1,75 @@
 package career;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Temp {
     public static void main(String[] args) {
-        String res = fractionToDecimal(4,333);
-        System.out.println(res);
+
+        Map<Integer,Integer> map = new HashMap<>();
+        System.out.println(map.put(1,1));
+        System.out.println(map.put(1,1));
+//        String res = fractionToDecimal(4,333);
+//        System.out.println(res);
+//        System.out.println(maxProduct(267));
+//        System.out.println(maxProduct(31));
+//        System.out.println(maxProduct(22));
+//        System.out.println(maxProduct(124));
+//        System.out.println(maxProduct(13));
+//        makeSpecialGrid(2);
+//     /   printGrid(grid);
     }
 
-    public static String fractionToDecimal(int numerator, int denominator) {
-        boolean isNegative = (numerator < 0 && denominator > 0)
-                || (numerator > 0 && denominator < 0);
-
-        long numeratorL = Math.abs((long)numerator);
-        long denominatorL = Math.abs((long)denominator);
-
-        Map<Long,Integer> prevRemains = new HashMap<>();
-        StringBuilder sb = new StringBuilder();
-
-        long quotian = numeratorL/denominatorL;
-        sb.append(quotian);
-
-        numeratorL %= denominatorL;
-        if(numeratorL != 0){
-            sb.append('.');
-        }
-
-        int qIndex =0;
-        while(numeratorL != 0){
-            numeratorL *=10;
-            quotian = Math.abs(numeratorL/denominatorL);
-            if(!prevRemains.containsKey(numeratorL)){
-                sb.append(quotian);
-                prevRemains.put(numeratorL,qIndex++);
-            }else{
-                int firstIndex = 1 + prevRemains.get(numeratorL) + sb.indexOf(".");
-                sb.insert(firstIndex,'(');
-                sb.append(')');
-                break;
+    public static int maxProduct(int n) {
+        String no = String.valueOf(n);
+        int max=0;
+        for(int i=0;i<no.length();i++){
+            for(int j=i+1;j<no.length();j++){
+                int no1=Integer.parseInt(no.charAt(i)+"");
+                int no2=Integer.parseInt(no.charAt(j)+"");
+                max=Math.max(max,no1*no2);
             }
-            numeratorL %=denominatorL;
         }
-        if(isNegative){
-            sb.insert(0,'-');
-        }
-        return sb.toString();
+        return max;
+    }
+    public static int[][] makeSpecialGrid(int N) {
+        return buildGrid(N, 0);
+    }
 
+    private static int[][] buildGrid(int n, int start) {
+        if (n == 0) {
+            return new int[][]{{start}};
+        }
+
+        int size = (int) Math.pow(2,n);
+        int half = size / 2;
+        int block = (size * size) / 4;
+
+        int[][] first = buildGrid(n - 1, start);
+        int[][] second = buildGrid(n - 1, start + block);
+        int[][] third = buildGrid(n - 1, start + 2 * block);
+        int[][] fourth = buildGrid(n - 1, start + 3 * block);
+
+        int[][] grid = new int[size][size];
+        for (int i = 0; i < half; i++) {
+            for (int j = 0; j < half; j++) {
+                grid[i][j + half] = first[i][j];
+                grid[i + half][j + half] = second[i][j];
+                grid[i + half][j] = third[i][j];
+                grid[i][j] = fourth[i][j];
+            }
+        }
+        return grid;
+    }
+
+    // Optional: Method to print the grid
+    public static void printGrid(int[][] grid) {
+        for (int[] row : grid) {
+            for (int val : row) {
+                System.out.printf("%4d", val);
+            }
+            System.out.println();
+        }
     }
 }
