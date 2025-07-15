@@ -18,7 +18,9 @@ public class FindLakesAtGivenPoint {
         };
 
         System.out.println(markAllPointOtherThanLakes(ocen,0,2));
+        System.out.println(" bfs = "+findLakesBasedOnGivenPoint(0,2,ocen));
         System.out.println(markAllPointOtherThanLakes(ocen,6,1));
+        System.out.println(" bfs = "+findLakesBasedOnGivenPoint(6,1,ocen));
 
          ocen=new char[][]{
                 {'.','.','.','.','.','.','.','.','.'},
@@ -35,7 +37,9 @@ public class FindLakesAtGivenPoint {
         };
 
         System.out.println(markAllPointOtherThanLakes(ocen,1,8));
+        System.out.println(" bfs = "+findLakesBasedOnGivenPoint(1,8,ocen));
         System.out.println(markAllPointOtherThanLakes(ocen,0,2));
+        System.out.println(" bfs = "+findLakesBasedOnGivenPoint(0,2,ocen));
     }
 
     static Set<String> set = new HashSet<>();
@@ -117,5 +121,125 @@ public class FindLakesAtGivenPoint {
 //        visited[x][y] = false;
 //        points.remove(points.size()-1);
     }
+
+
+
+    public static int findLakesBasedOnGivenPoint(int px,int py,char[][]ocen){
+        coverNonIslandArea(ocen);
+
+        if(ocen[px][py] == 'X'){
+            return 0;
+        }
+
+        if(ocen[px][py] == '.'){
+            return 1;
+        }else{
+            return findNoOfLakes(px,py,ocen);
+        }
+
+    }
+
+    public static void coverOcen(int x,int y,char[][]ocen){
+        int m = ocen.length;
+        int n = ocen[0].length;
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{x,y});
+        ocen[x][y]='X';
+        while(!queue.isEmpty()){
+            int point[]=queue.poll();
+            int px = point[0];
+            int py = point[1];
+            for(int dir[]:dirs){
+                int newX = px + dir[0];
+                int newY = py + dir[1];
+                if(newX < 0 || newX >= m || newY < 0 || newY >= n || ocen[newX][newY]!= '.'){
+                    continue;
+                }
+                ocen[newX][newY]='X';
+                queue.add(new int[]{newX,newY});
+            }
+        }
+
+    }
+    public static int findNoOfLakes(int x,int y,char[][]ocen){
+        int m = ocen.length;
+        int n = ocen[0].length;
+        Queue<int[]> queue = new LinkedList<>();
+        ocen[x][y]='X';
+        queue.add(new int[]{x,y});
+        int noOfLakes=0;
+        while(!queue.isEmpty()){
+            int point[]=queue.poll();
+            int px = point[0];
+            int py = point[1];
+            for(int dir[]:dirs){
+                int newX = px + dir[0];
+                int newY = py + dir[1];
+                if(newX < 0 || newX >= m || newY < 0 || newY >= n
+                        || ocen[newX][newY] == 'X' || ocen[newX][newY] == 'O'){
+                    continue;
+                }
+                if(ocen[newX][newY]=='.'){
+                    coverOcen(newX,newY,ocen);
+                    noOfLakes++;
+                }
+                ocen[newX][newY]='X';
+                queue.add(new int[]{newX,newY});
+            }
+
+        }
+        return noOfLakes;
+    }
+
+    public static void coverNonIslandArea(char [][]ocen){
+        int m = ocen.length;
+        int n = ocen[0].length;
+        Queue<int[]> queue = new LinkedList<>();
+
+        for(int i=0;i<m;i++){
+            if(ocen[i][0] == '.'){
+                queue.add(new int[]{i,0});
+            }
+            if(ocen[i][n-1] == '.'){
+                queue.add(new int[]{i,n-1});
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(ocen[0][i] == '.'){
+                queue.add(new int[]{0,i});
+            }
+            if(ocen[m-1][i] == '.'){
+                queue.add(new int[]{m-1,i});
+            }
+        }
+
+        coverNonIslandArea(ocen,queue);
+    }
+
+    public static int dirs[][]={{-1,0},{0,-1},{1,0},{0,1}};
+
+    public static void coverNonIslandArea(char[][]ocen,Queue<int[]> queue){
+        int m = ocen.length;
+        int n = ocen[0].length;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i=0;i<size;i++){
+                int point[]=queue.poll();
+                int px = point[0];
+                int py = point[1];
+                ocen[px][py]='O';
+                for(int dir[]:dirs){
+                    int newX = px + dir[0];
+                    int newY = py + dir[1];
+                    if(newX < 0 || newX >= m || newY < 0 || newY >= n || ocen[newX][newY]!= '.'){
+                        continue;
+                    }
+                    ocen[newX][newY]='O';
+                    queue.add(new int[]{newX,newY});
+                }
+            }
+        }
+    }
+
 
 }

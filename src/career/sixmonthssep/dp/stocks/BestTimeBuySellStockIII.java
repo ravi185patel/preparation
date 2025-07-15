@@ -61,6 +61,10 @@ public class BestTimeBuySellStockIII {
     public static void main(String[] args) {
         System.out.println(maxProfitDpOP(new int[]{3,3,5,0,0,3,1,4}));
         System.out.println(maxProfitDpOP(new int[]{1,2,3,4,5}));
+
+        System.out.println(" Dp ---");
+        System.out.println(maxProfitDp1(new int[]{3,3,5,0,0,3,1,4}));
+        System.out.println(maxProfitDp1(new int[]{1,2,3,4,5}));
     }
 
     public static int maxProfitDpOP(int[] prices) {
@@ -73,7 +77,7 @@ public class BestTimeBuySellStockIII {
             buy2 = Math.min(buy2,prices[i] - profit1);
             profit2 = Math.max(profit2,prices[i]-buy2);
 
-            System.out.println(prices[i]+" "+buy1+" "+profit1+" "+buy2+" "+profit2);
+//            System.out.println(prices[i]+" "+buy1+" "+profit1+" "+buy2+" "+profit2);
         }
         return profit2;
     }
@@ -82,6 +86,31 @@ public class BestTimeBuySellStockIII {
         int length = prices.length;
         int prevStatus[][] = new int[2][3];
         for (int stock = length - 1; stock >= 0; stock--) {
+            int status[][] = new int[2][3];
+            for (int buy = 0; buy <= 1; buy++) {
+                for(int cap =1;cap<=2;cap++){
+                    int profit = 0;
+                    if (buy == 0) {
+                        profit = Math.max(prevStatus[0][cap], -prices[stock] + prevStatus[1][cap]);
+                    } else {
+                        profit = Math.max(prevStatus[1][cap], prices[stock] + prevStatus[0][cap-1]);
+                    }
+                    status[buy][cap] = profit;
+                }
+            }
+            prevStatus = status.clone();
+        }
+
+        return prevStatus[0][2];
+    }
+
+    public static int maxProfitDp1(int[] prices) {
+        int length = prices.length;
+        int prevStatus[][] = new int[2][3];
+        prevStatus[0][0]=0;
+        prevStatus[0][1]=0;
+        prevStatus[0][2]=0;
+        for (int stock = 1;stock< length;stock++) {
             int status[][] = new int[2][3];
             for (int buy = 0; buy <= 1; buy++) {
                 for(int cap =1;cap<=2;cap++){

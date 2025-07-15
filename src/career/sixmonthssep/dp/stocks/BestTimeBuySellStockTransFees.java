@@ -40,6 +40,32 @@ public class BestTimeBuySellStockTransFees {
     public static void main(String[] args) {
         System.out.println(maxProfitDpOP(new int[]{1,3,2,8,4,9},2));
         System.out.println(maxProfitDpOP(new int[]{1,3,7,5,10,3},3));
+        System.out.println(maxProfitRec(new int[]{1,3,7,5,10,3},0,0,3));
+        System.out.println(maxProfitDp(new int[]{1,3,7,5,10,3},3));
+    }
+
+    public static long maxProfitRec(int[]prices,int index,int buy,int fees){
+        if(index == prices.length){
+            return 0;
+        }
+
+        long maxProfit =0l;
+        if(buy == 0){
+            maxProfit = Math.max(maxProfitRec(prices,index+1,0,fees),-prices[index]+maxProfitRec(prices,index+1,1,fees));
+        }else {
+            maxProfit = Math.max(maxProfitRec(prices,index+1,1,fees),-fees+prices[index]+maxProfitRec(prices,index+1,0,fees));
+        }
+        return maxProfit;
+    }
+
+    public static long maxProfitDp(int[]prices,int fees){
+        int sell = 0;
+        int purchase=-prices[0];
+        for(int i=1;i<prices.length;i++){
+            purchase = Math.max(purchase,-prices[i]+sell);
+            sell = Math.max(sell,prices[i]+purchase-fees);
+        }
+        return sell;
     }
 
     public static int maxProfitDpOPOwn(int[] prices,int fee) {
@@ -47,6 +73,10 @@ public class BestTimeBuySellStockTransFees {
         int profit = 0;
         for(int i=1;i<n;i++){
             if(prices[i-1] < prices[i]){
+                // won't work as every transaction we have to pay fees
+                // here two transaction performed and total 2*fee has to pay
+                // and same range has one one transaction with fee.
+                // 1,3,2,8 -> 1-3,3-8 -> 1,8 -> max profit = 8-1-2 = 5
                 profit = Math.max(profit,(prices[i] - prices[i-1])-fee);
             }
         }
