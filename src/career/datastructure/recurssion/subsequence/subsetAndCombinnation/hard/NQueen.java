@@ -22,6 +22,12 @@ public class NQueen {
    4] no -> backtrack choose other placement for queen
    5] repeate it
 
+   6] think for safe side
+   -> when you increase row and col wise you need to take care of left upper and lopwer diagonal
+   as no other queen placed in cell after row and col so no need to verify it
+   -> check left side of row and upper side of col
+   -> check left diagonal upper and left diagonal down.
+
    VERY VERY important point
    1] Here you don't need recursive for column but for row
    here column should be sequential if you placed at 1
