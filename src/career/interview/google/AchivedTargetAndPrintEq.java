@@ -1,4 +1,4 @@
-package career.interview.amazon;
+package career.interview.google;
 
 import java.util.*;
 
@@ -24,7 +24,7 @@ class Node{
         return Objects.hash(sum, eq);
     }
 }
-public class Problem1 {
+public class AchivedTargetAndPrintEq {
     public static void main(String[] args) {
 
         int []nums={1,2,3,5};
