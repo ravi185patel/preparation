@@ -7,8 +7,8 @@ import java.util.List;
 public class Subsets {
     public static void main(String[] args) {
         System.out.println(subsets(new int[]{1,2,3}));
-//        System.out.println(subsets(new int[]{1,2,3,3}));
-        System.out.println(uniqueSubsets(new int[]{1,2,3,3}));
+        System.out.println(subsets(new int[]{1,2,3,3}));
+//        System.out.println(uniqueSubsets(new int[]{1,2,3,3}));
     }
 
     public static List<List<Integer>> subsets(int[] nums) {
@@ -25,13 +25,22 @@ public class Subsets {
     }
 
     private static void helper(int index,int []nums,List<Integer> lst,List<List<Integer>>res){
-
-        res.add(new ArrayList<>(lst));
-        for(int i=index;i<nums.length;i++){
-            lst.add(nums[i]);
-            helper(i+1,nums,lst,res);
-            lst.remove(lst.size()-1);
+        if(index >= nums.length){
+            res.add(new ArrayList<>(lst));
+            return;
         }
+
+        lst.add(nums[index]);
+        helper(index+1,nums,lst,res);
+        lst.remove(lst.size()-1);
+        helper(index+1,nums,lst,res);
+
+//        res.add(new ArrayList<>(lst));
+//        for(int i=index;i<nums.length;i++){
+//            lst.add(nums[i]);
+//            helper(i+1,nums,lst,res);
+//            lst.remove(lst.size()-1);
+//        }
     }
 
     private static void helperUnique(int index,int []nums,List<Integer> lst,List<List<Integer>>res){
