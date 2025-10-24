@@ -1,9 +1,8 @@
-package career.datastructure.swapline;
+package career.datastructure.swaplineordifferencearray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.PriorityQueue;
 
 /*
 https://leetcode.com/problems/zero-array-transformation-iv/description/

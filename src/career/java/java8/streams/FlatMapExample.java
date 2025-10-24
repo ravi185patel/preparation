@@ -1,6 +1,6 @@
 package career.java.java8.streams;
 
-import com.career.common.Employee;
+import career.common.Employee;
 
 import java.util.*;
 import java.util.stream.*;

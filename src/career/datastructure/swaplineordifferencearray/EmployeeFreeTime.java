@@ -1,4 +1,4 @@
-package career.datastructure.swapline;
+package career.datastructure.swaplineordifferencearray;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -29,7 +29,7 @@ public class RemoveEdgeBetweenNodeCountComponent {
         for(int[] edge:edges){
             List<Integer> nodeEdges = hmap.getOrDefault(edge[0],new ArrayList<>());
             if(nodeEdges.contains(edge[1])){
-                nodeEdges.remove(new Integer(edge[1]));
+                nodeEdges.remove(Integer.valueOf(edge[1]));
             }
         }
         System.out.println(hmap);

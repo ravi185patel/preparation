@@ -1,4 +1,4 @@
-package career.datastructure.swapline;
+package career.datastructure.swaplineordifferencearray;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -11,7 +11,7 @@ public class MeetingRoom {
     public static void main(String[] args) {
 
     }
-        public boolean canAttendMeetings(int[][] intervals) {
+        public boolean canAttendMeetings2(int[][] intervals) {
             Map<Integer,Integer> map = new TreeMap<>(); // very important point
             for(int interval[]:intervals){
                 map.put(interval[0],map.getOrDefault(interval[0],0)+1);
@@ -41,4 +41,17 @@ public class MeetingRoom {
             }
             return true;
         }
+
+    public boolean canAttendMeetings(int[][] intervals) {
+        Arrays.sort(intervals,(i1,i2)-> i1[0] - i2[0]);
+        // for(int []i:intervals){
+        //     System.out.println(Arrays.toString(i));
+        // }
+        for(int i=0;i<intervals.length-1;i++){
+            if(intervals[i][1] > intervals[i + 1][0]){
+                return false;
+            }
+        }
+        return true;
+    }
 }

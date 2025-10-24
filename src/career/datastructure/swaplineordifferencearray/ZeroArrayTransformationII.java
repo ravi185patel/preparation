@@ -1,4 +1,4 @@
-package career.datastructure.swapline;
+package career.datastructure.swaplineordifferencearray;
 
 /*
 https://leetcode.com/problems/zero-array-transformation-ii/description/

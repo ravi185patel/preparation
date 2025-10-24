@@ -1,4 +1,4 @@
-package career.sixmonthssep.sllidingwindow;
+package career.datastructure.sllidingwindow;
 
 import java.util.ArrayList;
 import java.util.Arrays;

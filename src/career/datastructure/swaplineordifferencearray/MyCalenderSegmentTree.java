@@ -1,4 +1,4 @@
-package career.datastructure.swapline;
+package career.datastructure.swaplineordifferencearray;
 
 /*
 TreeMap: Simpler, good for small input sizes (LeetCode constraints).

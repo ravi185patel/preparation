@@ -1,4 +1,4 @@
-package career.datastructure.swapline;
+package career.datastructure.swaplineordifferencearray;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -86,5 +86,21 @@ public class MeetingRoomIII {
             }
         }
         return resultRoom;
+    }
+
+    public int mostBookedPq(int n, int[][] meetings) {
+        // Sort meetings based on start time
+        Arrays.sort(meetings, (a, b) -> a[0] - b[0]);
+
+        // Min-heap for available rooms (stores room numbers)
+        PriorityQueue<int[]> pq = new PriorityQueue<>((i,j) -> i[1]==j[1] ? i[0]-j[0]:j[1]-i[1]);
+
+        for(int meeting[]:meetings){
+            
+        }
+
+        return -1;
+
+
     }
 }
