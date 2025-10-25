@@ -36,11 +36,40 @@ If nextStart < end → overlap.
  */
 public class MyCalenderI {
     TreeMap<Integer,Integer> calendar = new TreeMap<>();
+    List<int[]> intervals = new ArrayList<>();
     private List<Integer> starts;
     private List<Integer> ends;
     public static void main(String[] args) {
+        MyCalenderI myCalenderI = new MyCalenderI();
+        boolean flag = myCalenderI.bookArrBS(10,20);
+        System.out.println(flag);
+        flag = myCalenderI.bookArrBS(15,25);
+        System.out.println(flag);
+        flag = myCalenderI.bookArrBS(20,30);
+        System.out.println(flag);
     }
 
+    public boolean bookArrBS(int start, int end) {
+        int left = 0, right = intervals.size() - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            int[] midp = intervals.get(mid);
+
+            if (midp[1] <= start) {
+                // new interval is after mid
+                left = mid + 1;
+            } else if (midp[0] >= end) {
+                // new interval is before mid
+                right = mid - 1;
+            } else {
+                // Overlap found
+                return false;
+            }
+        }
+        intervals.add(left, new int[]{start, end});
+        return true;
+    }
 
     public boolean bookBS(int start, int end) {
 
