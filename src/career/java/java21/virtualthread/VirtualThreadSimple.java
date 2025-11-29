@@ -22,21 +22,21 @@ public class VirtualThreadSimple {
         List<Thread> threads = new ArrayList<>(n);
 
         Instant start = Instant.now();
-        for (int i = 0; i < n; i++) {
-            Thread vt = Thread.ofVirtual().start(() -> {
-                // simulate some blocking I/O like work
-                try {
-                    // cheap sleep to yield — in real apps this is an I/O
-                    Thread.sleep(5);
-                } catch (InterruptedException e) {
-                    // ignore for this demo
-                }
-            });
-            threads.add(vt);
-        }
-
-        for (Thread t : threads) t.join();
-        Instant end = Instant.now();
-        System.out.println("Created and joined " + n + " virtual threads in " + Duration.between(start, end).toMillis() + " ms");
+//        for (int i = 0; i < n; i++) {
+//            Thread vt = Thread.ofVirtual().start(() -> {
+//                // simulate some blocking I/O like work
+//                try {
+//                    // cheap sleep to yield — in real apps this is an I/O
+//                    Thread.sleep(5);
+//                } catch (InterruptedException e) {
+//                    // ignore for this demo
+//                }
+//            });
+//            threads.add(vt);
+//        }
+//
+//        for (Thread t : threads) t.join();
+//        Instant end = Instant.now();
+//        System.out.println("Created and joined " + n + " virtual threads in " + Duration.between(start, end).toMillis() + " ms");
     }
 }

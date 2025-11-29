@@ -1,7 +1,9 @@
 package career.datastructure.sllidingwindow;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /*
 https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
@@ -18,7 +20,9 @@ public class FirstNegativeInEveryWindowOfSizeK {
     public static void main(String[] args) {
 //        int arr[] = {-8, 2, 3, -6, 10} , k = 2;
         int  arr[] = {12, -1, -7, 8, -15, 30, 16, 28} , k = 3;
+//        int  arr[] = {-8, 2, 3, -6, 10} , k = 2;
         System.out.println(firstNegInt(arr,k));
+        System.out.println(firstNegInt1(arr,k));
     }
     static List<Integer> firstNegInt(int arr[], int k) {
         // write code here
@@ -42,5 +46,32 @@ public class FirstNegativeInEveryWindowOfSizeK {
             }
         }
         return res;
+    }
+
+    static List<Integer> firstNegInt1(int arr[], int k) {
+        // write code here
+      Queue<Integer> queue = new LinkedList<>();
+      List<Integer> res = new ArrayList<>();
+      int j=0;
+      for(int i=0;i<arr.length;i++){
+          if(arr[i] < 0){
+              queue.add(arr[i]);
+          }
+          if(i-j+1 == k){
+              if(queue.isEmpty()){
+                  res.add(0);
+              }else{
+
+                  res.add(queue.peek());
+              }
+
+              if(arr[j] < 0){
+                queue.poll();
+              }
+              j++;
+          }
+      }
+      return res;
+
     }
 }

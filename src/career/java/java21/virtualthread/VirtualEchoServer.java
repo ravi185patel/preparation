@@ -13,7 +13,7 @@ public class VirtualEchoServer {
             while (true) {
                 Socket client = server.accept(); // accept returns quickly
                 // Create a virtual thread to handle the connection
-                Thread.ofVirtual().start(() -> handle(client));
+//                Thread.ofVirtual().start(() -> handle(client));
             }
         }
     }
