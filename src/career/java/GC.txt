@@ -1,0 +1,11 @@
+GC cheat sheet (high-value lines for interview)
+GC works on reachability from GC roots (not reference count).
+Minor GC = Young Gen, Major GC = Old Gen, Full GC = entire heap.
+G1 GC is default: region-based + predictable pauses.
+ZGC = sub-millisecond pause, multi-terabyte heap.
+Shenandoah = low-pause GC with concurrent compaction.
+CMS deprecated → removed due to fragmentation and complexity.
+Humongous objects in G1 cause fragmentation.
+Promotion failure triggers Full GC.
+GC logs help monitor pause time, memory growth, promotion failure.
+Memory leak = reachable objects not needed anymore.

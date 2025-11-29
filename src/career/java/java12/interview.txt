@@ -1,0 +1,33 @@
+Things to memorize / say in interviews
+
+Java 12 GA date and that it was a non-LTS release (Mar 19, 2019).
+
+Switch expressions were introduced as a preview language feature under
+JEP 12/JEP 325 — must enable --enable-preview for compile/run in JDK 12.
+Explain yield for block expressions.
+
+Shenandoah GC is experimental (JEP 189) — describe low-pause goals and trade-offs.
+
+Mention G1 improvements (return unused memory, abortable mixes) and Default CDS archives — why these improve startup/latency.
+
+JVM Constants API & microbenchmarking suite: mention their purpose briefly.
+
+**********Sample interview questions you may be asked
+
+How do switch expressions differ from old switch statements? Show examples.
+
+What is a preview feature? How do you compile and run preview features?
+ Why do we have preview features?
+
+What is Shenandoah GC? When would you choose it vs G1?
+
+What is Default CDS and how does it help startup?
+
+Explain the purpose of the JVM Constants API.
+
+Short answers you can memorize
+
+“Preview features let the JDK ship language/VM changes for developer feedback before finalizing;
+enabled with --enable-preview.”
+
+“Switch expressions remove fall-through and return values; use yield in multi-statement cases.”
