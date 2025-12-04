@@ -1,4 +1,4 @@
-package career.java.concept.concurrency;
+package career.java.concept.concurrency.producerconsumer;
 
 import java.util.LinkedList;
 import java.util.Queue;
