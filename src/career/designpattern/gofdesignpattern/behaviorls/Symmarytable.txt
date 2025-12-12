@@ -1,0 +1,13 @@
+| Pattern         | Purpose              | Real-life example | Spring example        |
+| --------------- | -------------------- | ----------------- | --------------------- |
+| Strategy        | Swap algorithms      | Payment modes     | Validators            |
+| Template Method | Skeleton algorithm   | Recipe            | JdbcTemplate          |
+| Observer        | Notify subscribers   | YouTube           | Events                |
+| Command         | Encapsulate requests | Remote control    | Runnable              |
+| CoR             | Pipeline processing  | Security checks   | Filter chain          |
+| State           | Behavior per state   | ATM               | StateMachine          |
+| Iterator        | Access elements      | Playlist          | MappingIterator       |
+| Mediator        | Central controller   | ATC               | ApplicationContext    |
+| Memento         | Undo                 | Editor            | —                     |
+| Visitor         | Add operations       | Tax calc          | BeanDefinitionVisitor |
+| Interpreter     | Grammar evaluation   | Regex             | SpEL                  |

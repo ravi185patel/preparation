@@ -1,0 +1,27 @@
+
+
+Creates a new object from an existing object.
+
+1] Mobile Phone making company releasing different mobiles for various segments.
+Now, each mobile will have some basic common functionality with some extent of variations.
+Here, the company will use one of its phone software and clone it according to other phones.
+
+2] Laptop making company designs Laptop’s body for one laptop in the software.
+After that, for future releases of this Laptop model, the company will simply clone the last model’s body and do the required changes as per the latest trend and requirements.
+
+3] Car manufecture ( imp -> just an example but this example is more suitable in decorator pattern)
+   base-model -> sport car
+              -> manual car
+              -> automatic car -> petrol car
+                               -> desile car -> with nevigation system
+                                             -> without negivation system.
+
+SearchRequest ->
+1] SearchRequest comes from web
+2] Can be forwarded to multiple resource to find data.
+3] criteria can be changed based on resource.
+  ex i) add Accounts when find out users based on accounts
+     ii) based on item-id find out items from stores.
+     iii) combine users and items to find out purchase total items.
+
+

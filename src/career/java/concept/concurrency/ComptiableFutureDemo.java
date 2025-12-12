@@ -10,10 +10,15 @@ public class ComptiableFutureDemo {
         /*
             supplyAsync:- accepts a Supplier as an argument and complete its job asynchronously.
             The result of supplier is run by a task from ForkJoinPool.commonPool() as default.
-            We can also pass our Executor. Finally supplyAsync method returns CompletableFuture on which
+            We can also pass our Executor.
+            Finally supplyAsync method returns CompletableFuture on which
             we can apply other methods.
-            thenApply:- method accepts a function as an argument. Once the calling CompletableFuture completes ,
-            then on the result of this stage, that function is applied by thenApply method and returns a CompletableFuture.
+
+            thenApply:- method accepts a function as an argument.
+            Once the calling CompletableFuture completes ,
+            then on the result of this stage, that function is applied by thenApply method
+            and returns a CompletableFuture.
+
             join:- method returns the result after completion or throws CompletionException.
             This method waits for the completion of calling completion stage.
          */
@@ -22,7 +27,8 @@ public class ComptiableFutureDemo {
                                 .forEach(s->System.out.println(s));
 
         /*
-        thenAccept:- method accepts Consumer as an argument. On the completion of any completion stage,
+        thenAccept:- method accepts Consumer as an argument.
+        On the completion of any completion stage,
         thenAccept method applies Consumer on the result and returns CompletableFuture.
          */
         List<String> list1 = Arrays.asList("A","B","C","D");
@@ -31,7 +37,8 @@ public class ComptiableFutureDemo {
                 .count();
 
         /*
-         whenComplete:- method uses BiConsumer as an argument. Once the calling completion stage completes,
+         whenComplete:- method uses BiConsumer as an argument.
+          Once the calling completion stage completes,
          whenComplete method applies completion stage result on BiConsumer.
          BiConsumer takes first argument as result and second argument as error if any.
          */

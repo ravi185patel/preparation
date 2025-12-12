@@ -1,0 +1,20 @@
+When doing Enterprise Application Development with the Spring Framework,
+ you will be using adapters built into the framework.
+
+Spring Integration uses JMS adapters to send and receive JMS messages
+and JDBC adapters to convert messages to database queries and result sets back to messages.
+
+Spring also uses the adapter design pattern to handle load-time-weaving
+ used in Aspect-Oriented Programming (AOP).
+
+An adapter is used to inject AspectJ’s aspects to bytecode during
+class loading done by the servlet container.
+
+There are some standard Adapters in Java core libraries:
+
+java.util.Arrays#asList()
+java.util.Collections#list()
+java.util.Collections#enumeration()
+java.io.InputStreamReader(InputStream) (returns a Reader object)
+java.io.OutputStreamWriter(OutputStream) (returns a Writer object)
+javax.xml.bind.annotation.adapters.XmlAdapter#marshal() and #unmarshal()

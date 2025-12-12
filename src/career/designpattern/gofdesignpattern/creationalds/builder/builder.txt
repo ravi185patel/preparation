@@ -1,0 +1,62 @@
+
+Creational design pattern.
+use when we are creating objects of class.
+tries to solve.
+
+*) class constructor requires a lot of information.
+
+Immutable Class.
+Now, an immutable object is an object whose state or properties cannot be changed once that object is created.
+So need all properties should be initilazied during creation of immutable objects means parameterized constructor.
+
+It is bad programming to pass all parameter in one construction because anyone going to
+create object of that class has to know/find out all those parameters.
+Not only parameters but also the types of all these parameters.
+
+class Product{ // immutable class
+   public product(int w,int p,int v,int c){
+
+   }
+}
+
+
+builder pattern useful in this situations.
+1] it will make it easy to use such constructors so that we can create objects of this class.
+2] it will help us to avoid writing such constructors in first place and still have our objects immutable.
+
+
+*) Objects that need other objects or "parts" to construct them.
+
+class Address{
+    public Address(String hNo,String stree){
+
+    }
+}
+
+class User{
+  public User(String name,Address address){
+
+  }
+}
+
+****** Builder **********
+i) we have a complex process to construct an object involving multiple steps, then builder design pattern
+can help us.
+ii) In builder we remove the logic related to object construction from "client" code
+& abstract it in separate classes.
+
+
+
+******* imp ********
+Used in java
+1] StringBuilder && StringBuffer -> append method.
+2] Java.util.stream.streamBuilder
+
+
+Spring framework
+1] UriComponentsBuilder.
+2] BeanDefinationBuilder.
+3] AuthenticaionManagerBuilder.
+
+**************** other way also you can create but interview point view this example is good to explain **************
+*********** you can try other example ********************

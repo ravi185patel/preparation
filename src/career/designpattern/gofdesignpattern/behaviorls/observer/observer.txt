@@ -1,0 +1,12 @@
+In Spring, the Observer Pattern is used in the ApplicationContext's event mechanism.
+The ApplicationEvent class and ApplicationListener interface of Spring enables event handling in Spring ApplicationContext.
+When you deploy a bean that implements the ApplicationListener interface,
+it will receive an ApplicationEvent every time the ApplicationEvent is published by an event publisher.
+Here, the event publisher is the subject and the bean that implements ApplicationListener is the observer.
+
+If you are creating your own custom event, your event publisher (subject) must implement the ApplicationEventPublisherAware interface.
+This interface has a setter method named setApplicationEventPublisher()
+that provides an ApplicationEventPublisher object for using in your class.
+The subject can then publish an event by calling the publishEvent() method of ApplicationEventPublisher.
+The subject can publish any event that extends ApplicationEvent and when the subject does so,
+the bean implementing ApplicationListener (observer) receives the event.

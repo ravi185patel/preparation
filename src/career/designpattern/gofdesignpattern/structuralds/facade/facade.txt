@@ -1,0 +1,6 @@
+
+
+Real life example
+DBconnections
+ServletContext
+HttpSession
