@@ -65,4 +65,33 @@ public class HouseRobberII {
         }
         return prev;
     }
+
+    public int rob(int[] nums) {
+        // if(nums.length == 1) return nums[0];
+        // int robbedStartFormFirstHouse = robRec(nums,1, nums.length - 1);
+        // int robbedStartFormSecondHouse = robRec(nums,0, nums.length - 2);
+        // return Math.max(robbedStartFormFirstHouse,robbedStartFormSecondHouse);
+
+        if(nums.length == 1) return nums[0];
+        int robbedStartFormFirstHouse = robDp(nums,1, nums.length - 1);
+        int robbedStartFormSecondHouse = robDp(nums,0, nums.length - 2);
+        return Math.max(robbedStartFormFirstHouse,robbedStartFormSecondHouse);
+    }
+
+    private int robDp(int [] nums, int start, int end){
+        int prev = nums[start],prev2=0;
+        for(int i=start+1;i<=end;i++){
+            int taken = nums[i];
+            if(i  > 1){
+                taken += prev2;
+            }
+            int noTaken = prev;
+            int curr = Math.max(taken,noTaken);
+
+            prev2 = prev;
+            prev = curr;
+        }
+
+        return prev;
+    }
 }

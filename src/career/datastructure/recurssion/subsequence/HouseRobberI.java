@@ -8,7 +8,20 @@ public class HouseRobberI {
 //        {1,2,3};
         {1,2,1,1}; // 3
         int res= robber(nums);
+        res= recursive(nums,nums.length-1);
         System.out.println(res);
+    }
+    private static int recursive(int nums[],int index){
+        // based condition
+        // recursinve calls
+        // return
+
+        if(index < 0){
+            return 0;
+        }
+        int noTaken = recursive(nums,index-1);
+        int taken = nums[index]+recursive(nums,index-2);
+        return Math.max(taken,noTaken);
     }
 
     private static int robber(int nums[]){

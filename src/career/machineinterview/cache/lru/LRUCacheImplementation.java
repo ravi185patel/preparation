@@ -23,7 +23,7 @@ public class LRUCacheImplementation implements CacheI {
 
     @Override
     public int get(int key) {
-        this.lock.readLock().lock();
+        this.lock.writeLock().lock();
         ListNode node = null;
         try {
             if (!lruCache.cache.containsKey(key)) {
@@ -34,7 +34,7 @@ public class LRUCacheImplementation implements CacheI {
         }catch (Exception e){
             System.out.println("Exception during get element: "+e.getMessage());
         }finally {
-            this.lock.readLock().unlock();
+            this.lock.writeLock().unlock();
         }
         return node == null ? -1:node.value;
     }
@@ -77,7 +77,7 @@ public class LRUCacheImplementation implements CacheI {
         lruCache.head.next = node;
     }
 
-    private void removeNode(ListNode node){
+    private void  removeNode(ListNode node){
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
