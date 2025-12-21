@@ -1,0 +1,8 @@
+Sliding window works only when:
+1] numbers are positive.
+2] window expands monotonically.
+
+Fails
+1] negative numbers exists.
+2] exact count required.
+

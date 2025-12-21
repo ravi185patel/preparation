@@ -1,0 +1,11 @@
+Worked
+1] Continue ranges ( subarray sum | range sum | subsstring balance) ==> subarray sum == k
+2] count subarrays
+
+not worked
+1] subset/subsequence -> sw
+2] at most k | mini size window -> sw ==> subarray sum >= k
+3] maintain window -> sw ==> longest substring with distinct character
+4] streaming data
+5] frequently updates
+6] fixed window size
