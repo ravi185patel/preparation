@@ -6,6 +6,9 @@ import java.util.Arrays;
 https://leetcode.com/problems/decode-ways/description/
  */
 public class DecodeWaysII {
+
+    static final int MOD = 1_000_000_007;
+    static Long[] dp;
     public static void main(String[] args) {
         System.out.println(numDecodingsII("12"));
         System.out.println(numDecodingsII("226"));
@@ -16,116 +19,48 @@ public class DecodeWaysII {
     }
 
     public static int numDecodingsII(String s) {
-        //base
-//        char sCharArr[]=s.toCharArray();
-        return numDecodingsRecII(s,0);
+        dp = new Long[s.length()];
+        return (int) solve(0, s);
+    }
 
-//        return numDecodingsDep(sCharArr,0);
-//        return numDecodingsNormal(s,0);
-    }
-    public static int numDecodingsRecII(String str,int index) {
-        //base
-        return -1;
-    }
-    public static boolean isValid(String str){
-        Integer no = Integer.parseInt(str);
-        if(no >= 1 && no <= 26){
-            return true;
+    public static long solve(int i,String s) {
+
+        if (i == s.length()) return 1;
+        if (s.charAt(i) == '0') return 0;
+
+        if (dp[i] != null) return dp[i];
+
+        long ways = 0;
+        char curr = s.charAt(i);
+
+        // ONE character
+        if (curr == '*') {
+            ways += 9 * solve(i + 1, s);
+        } else {
+            ways += solve(i + 1, s);
         }
-        return false;
-    }
 
-    public static int numDecodingsDep(char[] sCharArr,int index) {
-        int length = sCharArr.length;
-        int dp[]=new int[length+1];
-        dp[length] = 1;
+        // TWO characters
+        if (i + 1 < s.length()) {
+            char next = s.charAt(i + 1);
 
-        // Last character
-        dp[length - 1] = (sCharArr[length-1] != '0') ? 1 : 0;
-
-        for(int i=length-2;i>=0;i--){
-            if (sCharArr[i] == '0') { // main part because if 0 is in mid then full string is invalid
-                dp[i] = 0;
-                continue;
-            }
-            int noTake = dp[i+1];
-            int take =0;
-            int validNo = (sCharArr[i] - '0') * 10 + (sCharArr[i+1] - '0');
-//            System.out.println("no >" +validNo);
-            if (1 <= validNo && validNo <= 26) {
-                take = dp[i+2];
-            }
-            dp[i] = noTake + take;
-        }
-        return dp[0];
-    }
-
-
-    public static int numDecodingsNormal(String s,int index) {
-        int n = s.length();
-
-        if (n == 0 || s.charAt(0) == '0') return 0;
-
-        int next2 = 1; // dp[i+2]
-        int next1 = 1; // dp[i+1] for last char (safe because s[0] != '0')
-        int curr = 0;
-
-        for (int i = n - 2; i >= 0; i--) {
-            if (s.charAt(i) == '0') {
-                curr = 0;
+            if (curr == '*' && next == '*') {
+                ways += 15 * solve(i + 2, s);
+            } else if (curr == '*') {
+                ways += (next <= '6' ? 2 : 1) * solve(i + 2, s);
+            } else if (next == '*') {
+                if (curr == '1') ways += 9 * solve(i + 2, s);
+                else if (curr == '2') ways += 6 * solve(i + 2, s);
             } else {
-                int noTake = next1;
-                int num = (s.charAt(i) - '0') * 10 + (s.charAt(i + 1) - '0');
-                int take =0;
-                if (num >= 1 && num <= 26) {
-                    take = next2;
+                int num = (curr - '0') * 10 + (next - '0');
+                if (num >= 10 && num <= 26) {
+                    ways += solve(i + 2, s);
                 }
-                curr = noTake + take;
             }
-
-            next2 = next1;
-            next1 = curr;
         }
 
-        return next1;
-    }
+        return dp[i] = ways % MOD;
 
-    private int dfs(String s,int startIndex){
-        if(s.length() == startIndex){
-            return 1;
-        }
-        int ways = 0;
-        if(s.charAt(startIndex) == '0'){
-            return 0;
-        }
-
-        ways = dfs(s,startIndex+1);
-        if(startIndex+2 <= s.length()
-                && Integer.parseInt(s.substring(startIndex,startIndex+2)) <= 26)       {
-            ways += dfs(s,startIndex+2);
-        }
-        return ways;
-    }
-
-    private int dfsMemo(String s,int startIndex,int memo[]){
-        if(s.length() == startIndex){
-            return 1;
-        }
-
-        if(memo[startIndex] != -1){
-            return memo[startIndex];
-        }
-        int ways = 0;
-        if(s.charAt(startIndex) == '0'){
-            return 0;
-        }
-
-        ways = dfsMemo(s,startIndex+1,memo);
-        if(startIndex+2 <= s.length()
-                && Integer.parseInt(s.substring(startIndex,startIndex+2)) <= 26)       {
-            ways += dfsMemo(s,startIndex+2,memo);
-        }
-        return memo[startIndex] = ways;
     }
 
 }

@@ -27,7 +27,7 @@ Converts directly to 1D / 2D DP
 | #  | Problem                       | Core State | Transition | Notes         |status |
 | -- | ----------------------------- | ---------- | ---------- | ------------- |       |
 | 11 | Decode Ways                   | `i`        | `i+1,i+2`  | Zero traps    |D      |
-| 12 | Decode Ways II                | `i`        | `i+1,i+2`  | `*` wildcard  |       |
+| 12 | Decode Ways II                | `i`        | `i+1,i+2`  | `*` wildcard  |D      |
 | 13 | Palindrome Check              | `l,r`      | `l+1,r-1`  | Linear shrink |       |
 | 14 | Longest Palindromic Substring | `i,j`      | expand     | DP variant    |       |
 
