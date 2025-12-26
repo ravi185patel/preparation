@@ -6,7 +6,10 @@ public class HouseRobberII {
 //                {2,3,2};
 //                {1,2,3,1};
 //        {1,2,3};
-        {1,2,1,1}; // 3
+//        {1,2,1,1}; // 3
+//        {1,2,1,1,1}; // 3
+//        {1,2,1,1,4}; // 3
+        {1,2,3,1,3};
         int resR= robberRight(nums);
         int resL= robberLeft(nums);
         System.out.println(Math.max(resL,resR));

@@ -6,7 +6,8 @@ public class HouseRobberI {
 //                {2,3,2};
 //                {1,2,3,1};
 //        {1,2,3};
-        {1,2,1,1}; // 3
+//        {1,2,1,1}; // 3
+        {1,2,3,1,3};
         int res= robber(nums);
         res= recursive(nums,nums.length-1);
         System.out.println(res);

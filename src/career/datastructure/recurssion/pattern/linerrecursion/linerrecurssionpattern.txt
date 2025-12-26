@@ -1,0 +1,87 @@
+📌 LINEAR RECURSION / DECISION DP — MASTER TABLE
+
+🔑 Pattern rule
+State reduces linearly (i, n, target)
+Choices collapse using min / max / count
+Converts directly to 1D / 2D DP
+
+🟢 BASIC (Foundation – MUST DO)
+| # | Problem                  | Core State | Transition    | Notes               |status |
+| - | ------------------------ | ---------- | ------------- | ------------------- |       |
+| 1 | Fibonacci                | `n`        | `n-1, n-2`    | Optimized = linear  |d      |
+| 2 | Tribonacci               | `n`        | `n-1,n-2,n-3` | Fibonacci extension |d      |
+| 3 | Climbing Stairs          | `n`        | `n-1,n-2`     | Classic DP intro    |d      |
+| 4 | Min Cost Climbing Stairs | `i`        | `i+1,i+2`     | Cost-based          |d      |
+| 5 | N-th Step                | `n`        | `n-1`         | Pure linear         |d      |
+
+🟡 ARRAY / INDEX BASED (Linear Traversal)
+| #  | Problem         | Core State | Transition | Notes         |status |
+| -- | --------------- | ---------- | ---------- | ------------- |       |
+| 6  | House Robber    | `i`        | `i+1,i+2`  | Decision DP   |d      |
+| 7  | House Robber II | `i`        | circular   | Two runs      |d      |
+| 8  | Delete and Earn | `i`        | `i-1,i-2`  | HR variant    |       |
+| 9  | Jump Game       | `i`        | forward    | Greedy + DP   |       |
+| 10 | Jump Game II    | `i`        | min jumps  | Interview fav |       |
+
+🟠 STRING BASED (VERY IMPORTANT)
+| #  | Problem                       | Core State | Transition | Notes         |status |
+| -- | ----------------------------- | ---------- | ---------- | ------------- |       |
+| 11 | Decode Ways                   | `i`        | `i+1,i+2`  | Zero traps    |D      |
+| 12 | Decode Ways II                | `i`        | `i+1,i+2`  | `*` wildcard  |       |
+| 13 | Palindrome Check              | `l,r`      | `l+1,r-1`  | Linear shrink |       |
+| 14 | Longest Palindromic Substring | `i,j`      | expand     | DP variant    |       |
+
+🔵 COIN / TARGET BASED (Decision DP)
+| #  | Problem                | Core State | Transition    | Notes     |Status |
+| -- | ---------------------- | ---------- | ------------- | --------- |       |
+| 15 | Coin Change (min)      | `i,target` | take / skip   | Linear DP |D      |
+| 16 | Coin Change II (count) | `i,target` | count ways    | Linear DP |D      |
+| 17 | Perfect Squares        | `n`        | `n-k²`        | BFS/DP    |       |
+| 18 | Combination Sum IV     | `target`   | subtract nums | Count DP  |       |
+| 19 | Target Sum             | `i,sum`    | + / -         | Linear DP |       |
+
+🟣 PARTITION / SUBSET (Decision Version)
+| #  | Problem                    | Core State | Transition        | Notes              |       |
+| -- | -------------------------- | ---------- | ----------------- | ------------------ |       |
+| 20 | Partition Equal Subset Sum | `i,sum`    | include / exclude | DP not enum        |       |
+| 21 | Minimum Subset Sum Diff    | `i,sum`    | DP classic        |                    |       |
+| 22 | Last Stone Weight II       | `i,sum`    | +/-               | Same as Target Sum |       |
+
+🔴 STOCK PROBLEMS (INTERVIEW GOLD)
+| #  | Problem                   | Core State | Transition  | Notes         |       |
+| -- | ------------------------- | ---------- | ----------- | ------------- |       |
+| 23 | Best Time to Buy & Sell I | `i`        | hold / sell | 1 transaction |       |
+| 24 | Buy & Sell II             | `i`        | unlimited   | Greedy/DP     |       |
+| 25 | Buy & Sell III            | `i,k`      | 2 tx        | MAANG fav     |       |
+| 26 | Buy & Sell IV             | `i,k`      | k tx        | Advanced      |       |
+| 27 | Buy & Sell w Cooldown     | `i`        | cooldown    | Tricky        |       |
+
+⚫ ADVANCED LINEAR DP (High Signal)
+| #  | Problem                     | Core State | Transition | Notes    |       |
+| -- | --------------------------- | ---------- | ---------- | -------- |       |
+| 28 | Min Cost Tickets            | `day`      | 1/7/30     | Clean DP |       |
+| 29 | Partition Array for Max Sum | `i`        | window     | Hard     |       |
+| 30 | Dice Roll Sum               | `i,target` | faces      | DP math  |       |
+| 31 | Ways to Stay in Same Place  | `i,steps`  | left/right | Index DP |       |
+
+❌ NOT Linear Recursion (Important Contrast)
+| Problem                      | Why NOT Linear |       |
+| ---------------------------- | -------------- |       |
+| Subsets                      | Enumeration    |       |
+| Permutations                 | Backtracking   |       |
+| Combination Sum (all combos) | Enumeration    |       |
+| N-Queens                     | Backtracking   |       |
+| Palindromic Partitioning     | Enumeration    |       |
+
+🎯 INTERVIEW CHECKLIST (MEMORIZE)
+
+If a problem:
+✔ Returns number / min / max
+✔ State reduces linearly
+✔ Choices collapse immediately
+👉 Linear Recursion / Decision DP
+
+If a problem:
+❌ Returns lists
+❌ Explores all paths fully
+👉 Binary Recursion / Backtracking

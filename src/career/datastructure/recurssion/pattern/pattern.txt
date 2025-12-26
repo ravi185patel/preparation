@@ -1,0 +1,9 @@
+| Problem Hint       | Pattern          |
+| ------------------ | ---------------- |
+| Reduce by 1        | Linear           |
+| Two choices        | Binary           |
+| Split array        | Divide & Conquer |
+| “All combinations” | Backtracking     |
+| Tree given         | Tree DFS         |
+| Graph given        | Graph DFS        |
+| TLE                | DP               |
