@@ -1,4 +1,4 @@
-package career.datastructure.recurssion.pattern.linerrecursion;
+package career.datastructure.recurssion.pattern.linerrecursion.string;
 
 public class LongestPalindromicSubstring {
     static int start=0,end=0;

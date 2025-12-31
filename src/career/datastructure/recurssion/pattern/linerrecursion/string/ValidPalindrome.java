@@ -1,4 +1,4 @@
-package career.datastructure.recurssion.pattern.linerrecursion;
+package career.datastructure.recurssion.pattern.linerrecursion.string;
 
 /*
 https://leetcode.com/problems/valid-palindrome/description/
