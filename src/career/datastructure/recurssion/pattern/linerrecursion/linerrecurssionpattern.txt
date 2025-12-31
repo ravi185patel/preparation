@@ -19,17 +19,17 @@ Converts directly to 1D / 2D DP
 | -- | --------------- | ---------- | ---------- | ------------- |       |
 | 6  | House Robber    | `i`        | `i+1,i+2`  | Decision DP   |d      |
 | 7  | House Robber II | `i`        | circular   | Two runs      |d      |
-| 8  | Delete and Earn | `i`        | `i-1,i-2`  | HR variant    |       |
-| 9  | Jump Game       | `i`        | forward    | Greedy + DP   |       |
-| 10 | Jump Game II    | `i`        | min jumps  | Interview fav |       |
+| 8  | Delete and Earn | `i`        | `i-1,i-2`  | HR variant    |D      | very important : it is working on values not index ( whenever you will se x to X+1 or X-1 or X+2 ) go with house robber
+| 9  | Jump Game       | `i`        | forward    | Greedy + DP   |D      |
+| 10 | Jump Game II    | `i`        | min jumps  | Interview fav |D      |
 
 🟠 STRING BASED (VERY IMPORTANT)
 | #  | Problem                       | Core State | Transition | Notes         |status |
 | -- | ----------------------------- | ---------- | ---------- | ------------- |       |
 | 11 | Decode Ways                   | `i`        | `i+1,i+2`  | Zero traps    |D      |
 | 12 | Decode Ways II                | `i`        | `i+1,i+2`  | `*` wildcard  |D      |
-| 13 | Palindrome Check              | `l,r`      | `l+1,r-1`  | Linear shrink |       |
-| 14 | Longest Palindromic Substring | `i,j`      | expand     | DP variant    |       |
+| 13 | Palindrome Check              | `l,r`      | `l+1,r-1`  | Linear shrink |D      |
+| 14 | Longest Palindromic Substring | `i,j`      | expand     | DP variant    |D      | --> center expand
 
 🔵 COIN / TARGET BASED (Decision DP)
 | #  | Problem                | Core State | Transition    | Notes     |Status |

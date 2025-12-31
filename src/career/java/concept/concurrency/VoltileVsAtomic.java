@@ -8,11 +8,55 @@ import java.util.concurrent.atomic.AtomicInteger;
 Note :
   May be you are not getting what output you want.
   Example is only for understand may be output is not right or valid.
+
+
+Volatile :
+“Don’t cache this. Always read and write from main memory.”
+volatile is safe ONLY for variables that are read or written, but never modified based on their current value
+volatile does not guarantee atomicity for "compound operations"
+
+worked :
+volatile boolean flag;
+volatile int statusCode;     // only set, never incremented
+volatile long timestamp;     // only overwritten
+
+Not worked:
+counter++;
+i += 2;
+x = x * 10;
+
+
+volatile guarantees:
+✅ Visibility – changes by one thread are immediately visible to others
+✅ Ordering – prevents instruction reordering around the volatile variable
+
+volatile does NOT guarantee:
+❌ Atomicity (for multi-step operations)
+
+**********************
+counter++;
+
+This is NOT a single operation. It is a compound operation:
+1. read counter
+2. add 1
+3. write counter
+
+With multiple threads:
+Thread A reads counter = 5
+Thread B reads counter = 5
+Both increment to 6
+Both write back 6
+
+💥 Lost update problem
+Even though visibility is guaranteed, atomicity is not.
+
+Java Memory Model (JMM):
  */
 class Voletile{
-    boolean flag;
+    boolean flag; //It works for boolean because boolean read/write is atomic, but fails for compound operations like counter++.
     int noCounter; // visibility problem during threading
     volatile int counter; // solve visibility problem but create synchronized problem ( solution make method synchronized)
+    //“Don’t cache this. Always read and write from main memory.” and volatile does not guarantee atomicity for "compound operations".
     AtomicInteger atomicInteger=new AtomicInteger(0); // alternative for volatile with synchronized method
 
     public int getNoCounter() {
