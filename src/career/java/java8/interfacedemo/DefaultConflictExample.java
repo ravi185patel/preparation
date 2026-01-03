@@ -12,18 +12,32 @@ interface B {
     }
 }
 
-class C implements A, B {
-    // Resolving the conflict by overriding the show method
+class D {
+    void show(){
+        System.out.println("D's show()");
+    }
+}
+class C
+//        extends D
+        implements A, B {
     @Override
     public void show() {
-        System.out.println("C's show()");
+        A.super.show(); // ❗ Must override → compiler error otherwise
     }
+    // Resolving the conflict by overriding the show method
+//    @Override
+//    public void show() {
+//        System.out.println("C's show()");
+//    }
 }
 
 public class DefaultConflictExample {
     public static void main(String[] args) {
         C c = new C();
         c.show();  // Output: C's show()
-
+        A a =c;
+        a.show();
+        B b = c;
+        b.show();
     }
 }
