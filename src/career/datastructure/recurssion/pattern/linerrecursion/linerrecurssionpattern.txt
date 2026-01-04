@@ -37,7 +37,7 @@ Converts directly to 1D / 2D DP
 | 15 | Coin Change (min)      | `i,target` | take / skip   | Linear DP |D      |
 | 16 | Coin Change II (count) | `i,target` | count ways    | Linear DP |D      |
 | 17 | Perfect Squares        | `n`        | `n-k²`        | BFS/DP    |       |
-| 18 | Combination Sum IV     | `target`   | subtract nums | Count DP  |       |
+| 18 | Combination Sum IV     | `target`   | subtract nums | Count DP  |D      |
 | 19 | Target Sum             | `i,sum`    | + / -         | Linear DP |       |
 
 🟣 PARTITION / SUBSET (Decision Version)
@@ -50,11 +50,11 @@ Converts directly to 1D / 2D DP
 🔴 STOCK PROBLEMS (INTERVIEW GOLD)
 | #  | Problem                   | Core State | Transition  | Notes         |       |
 | -- | ------------------------- | ---------- | ----------- | ------------- |       |
-| 23 | Best Time to Buy & Sell I | `i`        | hold / sell | 1 transaction |       |
-| 24 | Buy & Sell II             | `i`        | unlimited   | Greedy/DP     |       |
-| 25 | Buy & Sell III            | `i,k`      | 2 tx        | MAANG fav     |       |
-| 26 | Buy & Sell IV             | `i,k`      | k tx        | Advanced      |       |
-| 27 | Buy & Sell w Cooldown     | `i`        | cooldown    | Tricky        |       |
+| 23 | Best Time to Buy & Sell I | `i`        | hold / sell | 1 transaction |D      |
+| 24 | Buy & Sell II             | `i`        | unlimited   | Greedy/DP     |D      |
+| 25 | Buy & Sell III            | `i,k`      | 2 tx        | MAANG fav     |D      |
+| 26 | Buy & Sell IV             | `i,k`      | k tx        | Advanced      |D      |
+| 27 | Buy & Sell w Cooldown     | `i`        | cooldown    | Tricky        |D      |
 
 ⚫ ADVANCED LINEAR DP (High Signal)
 | #  | Problem                     | Core State | Transition | Notes    |       |

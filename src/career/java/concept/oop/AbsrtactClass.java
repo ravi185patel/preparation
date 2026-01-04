@@ -1,5 +1,9 @@
 package career.java.concept.oop;
 
+/*
+We use interfaces when integrating multiple third-party vendors to expose a strict contract and ensure loose coupling,
+and abstract classes when we want to share common behavior across internally controlled implementations.
+ */
 abstract class Demo{
     int i;
     abstract int get();
