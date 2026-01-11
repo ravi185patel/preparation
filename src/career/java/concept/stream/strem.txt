@@ -1,0 +1,120 @@
+********1️⃣ Stream Creation Methods********
+*****From Collection*****
+collection.stream();
+collection.parallelStream();
+
+*****From Array*****
+Arrays.stream(array);
+
+*****Static Stream Methods*****
+Stream.of(1, 2, 3);
+Stream.empty();
+Stream.generate(() -> Math.random());
+Stream.iterate(0, n -> n + 1);
+
+********⃣ Intermediate Methods (Most Important for Interviews)********
+
+👉 These return another Stream
+👉 They are lazy (not executed until terminal operation)
+
+🔹 Filtering & Conditional
+
+| Method              | Purpose                                 |
+| ------------------- | --------------------------------------- |
+| `filter(Predicate)` | Select elements based on condition      |
+| `distinct()`        | Remove duplicates                       |
+| `limit(n)`          | Take first n elements                   |
+| `skip(n)`           | Skip first n elements                   |
+| `takeWhile()`       | Take until condition is false (Java 9+) |
+| `dropWhile()`       | Drop until condition is false (Java 9+) |
+
+🔹 Transformation
+
+| Method              | Purpose                 |
+| ------------------- | ----------------------- |
+| `map(Function)`     | Transform each element  |
+| `flatMap(Function)` | Flatten nested streams  |
+| `mapToInt()`        | Convert to IntStream    |
+| `mapToLong()`       | Convert to LongStream   |
+| `mapToDouble()`     | Convert to DoubleStream |
+
+🔹 Sorting & Ordering
+| Method               | Purpose        |
+| -------------------- | -------------- |
+| `sorted()`           | Natural order  |
+| `sorted(Comparator)` | Custom sorting |
+
+🔹 Debugging / Inspection
+| Method   | Purpose                        |
+| -------- | ------------------------------ |
+| `peek()` | Debug stream without modifying |
+
+
+********3️⃣ Terminal Methods (Execution Happens Here)********
+
+👉 These end the stream
+👉 A stream cannot be reused after this
+
+🔹 Iteration & Display
+
+| Method             |
+| ------------------ |
+| `forEach()`        |
+| `forEachOrdered()` |
+
+🔹 Reduction
+| Method     | Purpose                |
+| ---------- | ---------------------- |
+| `reduce()` | Reduce to single value |
+| `count()`  | Count elements         |
+| `min()`    | Minimum                |
+| `max()`    | Maximum                |
+
+🔹 Matching & Finding
+| Method        | Purpose                       |
+| ------------- | ----------------------------- |
+| `anyMatch()`  | At least one matches          |
+| `allMatch()`  | All match                     |
+| `noneMatch()` | None match                    |
+| `findFirst()` | First element                 |
+| `findAny()`   | Any element (parallel stream) |
+
+🔹 Collecting (VERY IMPORTANT)
+| Method      |
+| ----------- |
+| `collect()` |
+
+Common collectors:
+Collectors.toList()
+Collectors.toSet()
+Collectors.toMap()
+Collectors.groupingBy()
+Collectors.partitioningBy()
+Collectors.mapping()
+Collectors.counting()
+Collectors.joining()
+
+🔹 Conversion to Array / Stream Types
+| Method                |
+| --------------------- |
+| `toArray()`           |
+| `toList()` (Java 16+) |
+
+Collectors method
+| Collector                  | Return Type          | Purpose                                    |
+| -------------------------- | -------------------- | ------------------------------------------ |
+| toList()                   | List<T>              | Collect to List                            |
+| toSet()                    | Set<T>               | Collect to Set                             |
+| toCollection(Supplier)     | Collection           | Collect to custom collection               |
+| joining()                  | String               | Join elements into a string                |
+| counting()                 | long                 | Count elements                             |
+| averagingInt/Long/Double   | double               | Average values                             |
+| summingInt/Long/Double     | numeric              | Sum of values                              |
+| summarizingInt/Long/Double | SummaryStatistics    | Count, sum, min, max, avg                  |
+| reducing()                 | T                    | Reduce elements                            |
+| minBy() / maxBy()          | Optional<T>          | Minimum / maximum element                  |
+| groupingBy()               | Map<K,List<T>>       | Group by classifier                        |
+| partitioningBy()           | Map<Boolean,List<T>> | Partition by predicate                     |
+| mapping()                  | Collector            | Transform elements in collector            |
+| collectingAndThen()        | R                    | Collector + finish function                |
+| teeing()                   | R                    | Combine two collectors into one (Java 12+) |

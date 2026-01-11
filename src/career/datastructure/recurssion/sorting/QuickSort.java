@@ -22,6 +22,8 @@ public class QuickSort {
         int pivot = arr[low];
         int i=low,j=high;
         while(i<j){
+            // make all left elements less than 5
+            // and right elements greater than 5
             while(arr[i] <= pivot && i<=high-1){
                 i++;
             }
@@ -36,6 +38,7 @@ public class QuickSort {
             }
         }
 
+        // here j is pivot index and low is pivot so have to swap
         int temp = arr[low];
         arr[low] = arr[j];
         arr[j] = temp;

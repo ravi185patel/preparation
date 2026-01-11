@@ -9,9 +9,9 @@ public class NQueen {
     public static void main(String[] args) {
 //        String[][] board = {{".Q..","...Q","Q...","..Q."},{"..Q.","Q...","...Q",".Q.."}};
         NQueen nQueen = new NQueen();
-        System.out.println(nQueen.solveNQueens(4));
-        System.out.println(nQueen.solveNQueens1(4));
-        System.out.println(nQueen.solveNQueens1(9));
+        System.out.println(nQueen.solveNQueens2(4));
+//        System.out.println(nQueen.solveNQueens1(4));
+//        System.out.println(nQueen.solveNQueens1(9));
     }
     /*
    max 9 row and columns
