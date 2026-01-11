@@ -10,6 +10,11 @@ import java.util.List;
 | No parentheses                  | Backtracking with `lastValue`          |
 | Unlimited numbers + parentheses | **Expression generation + evaluation** |
 
+
+Because the input size is fixed to three numbers,
+I enumerate the only two valid parenthesization forms: (a op b) op c and a op (b op c).
+This gives a constant-time solution
+
  */
 
 public class GoogleInterviewExpressionAddOperators {
