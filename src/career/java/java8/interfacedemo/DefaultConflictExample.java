@@ -11,7 +11,6 @@ interface B {
         System.out.println("B's show()");
     }
 }
-
 class D {
     void show(){
         System.out.println("D's show()");
