@@ -4,11 +4,14 @@ import java.util.*;
 
 public class NumberOfBeautifulSubsets {
     public static void main(String[] args) {
-        System.out.println(beautifulSubsets(new int[]{2,4,6},2));
 //        System.out.println(beautifulSubsets(new int[]{1},1));
 //        System.out.println(beautifulSubsets(new int[]{1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000},1));
 //        System.out.println(beautifulSubsets(new int[]{20,14,22,1,4,11,21,19,29,25,12,18,9,15,23,6,27,16,26,5},1));
-        System.out.println(beautifulSubsets(new int[]{10,4,5,7,2,1},3));
+
+        System.out.println(beautifulSubsets(new int[]{2,4,6},2));
+        System.out.println(beautifulSubsets(new int[]{10,4,5,7,2,1},3)); // 23
+        System.out.println(beautifulSubsets(new int[]{4,2,5,9,10,3},1)); //23
+        System.out.println(beautifulSubsets(new int[]{942,231,247,267,741,320,844,276,578,659,96,697,801,892,752,948,176,92,469,595},43)); //23
     }
     public static int beautifulSubsets(int[] nums, int k) {
         Arrays.sort(nums);
@@ -18,8 +21,27 @@ public class NumberOfBeautifulSubsets {
         return combination.size();*/
 //        return solveIt(0,nums,k);
 
-        freq = new HashMap<Integer, Integer>();
-        return beautifulSubsets(nums, k, 0) - 1; // -1 for empty subset
+//        freq = new HashMap<Integer, Integer>();
+//        return beautifulSubsets(nums, k, 0) - 1; // -1 for empty subset
+
+        int memo[][]=new int[nums.length+1][1<<nums.length+1];
+        for(int m[]:memo){
+            Arrays.fill(m,-1);
+        }
+        // consumer too much memory so use map instead of array
+        /*
+                    Example
+            If: n = 4 Then: index → 4, mask → 2⁴ = 16
+
+            Memo size: 4 × 16 = 64 states
+            Memory usage (approx)
+            Using Integer (object):
+            Each cell ≈ 16 bytes (depends on JVM)
+            For n = 15: 15 × 32768 ≈ 491,520 cells ≈ ~8 MB
+            For n = 20: 20 × 1,048,576 ≈ 20 million cells ❌ (too large)
+         */
+//        return solveDfsPickNotPickMask(0,k,nums,memo,0);
+        return solveDfsPickNotPickMask(0,k,nums,new HashMap<>(),0);
     }
 
     public static void solveLst(int index,int []nums,int k,List<List<Integer>> combination,List<Integer> lst){
@@ -49,6 +71,104 @@ public class NumberOfBeautifulSubsets {
         }
         System.out.println(Arrays.toString(dp));
         return Arrays.stream(dp).sum();
+    }
+
+    public static int solveDfsPickNotPick(int index, int k, int nums[], Set<Integer> lst){
+
+        if(index == nums.length) return lst.size()>= 1 ? 1:0;
+
+        int noTake = solveDfsPickNotPick(index+1,k,nums,lst);
+        int take=0;
+        if(index == 0 || (!(lst.contains(nums[index]-k) || lst.contains(nums[index]+k)))) {
+            lst.add(nums[index]);
+            take = solveDfsPickNotPick(index + 1, k, nums, lst);
+            lst.remove(nums[index]);
+        }
+
+        return take + noTake;
+
+    }
+
+    public static int solveDfsPickNotPickMask(int index, int k, int nums[], int memo[][],int mask){
+
+        if(index == nums.length) return mask == 0 ? 0 : 1;
+
+        if (memo[index][mask] != -1) {
+            return memo[index][mask];
+        }
+
+        int noTake = solveDfsPickNotPickMask(index + 1, k, nums,memo,mask);
+
+        int take = 0;
+        boolean valid = true;
+
+        for (int i = 0; i < index; i++) {
+            if ((mask & (1 << i)) != 0 &&
+                    Math.abs(nums[i] - nums[index]) == k) {
+                valid = false;
+                break;
+            }
+        }
+
+
+        if (valid) {
+            take = solveDfsPickNotPickMask(index + 1, k, nums,memo, mask | 1 << index);
+        }
+
+        memo[index][mask] = take + noTake;
+        return memo[index][mask];
+
+    }
+
+    public static int solveDfsPickNotPickMask(int index, int k, int nums[], Map<Long,Integer> memo,int mask){
+
+        if(index == nums.length) return mask == 0 ? 0 : 1;
+
+        long key = (((long) index) << 32) | (mask & 0xffffffffL);
+
+        if (memo.containsKey(key)) {
+            return memo.get(key);
+        }
+
+        int noTake = solveDfsPickNotPickMask(index + 1, k, nums,memo,mask);
+
+        int take = 0;
+        boolean valid = true;
+
+        /*
+
+        What each condition means
+        1️⃣ (mask & (1 << i)) != 0
+        👉 Checks whether index i is already picked
+        1 << i → creates a bitmask with only bit i set
+        mask & (1 << i):
+                != 0 → bit i is ON → nums[i] is already in the subset
+                == 0 → bit i is OFF → nums[i] is not chosen
+        So this ensures we only compare against chosen elements.
+
+        2️⃣ Math.abs(nums[i] - nums[index]) == k
+        👉 Checks the problem constraint
+            Compares the current number with an already chosen number
+            If their absolute difference is exactly k, the subset is invalid
+         */
+
+        for (int i = 0; i < index; i++) {
+            if ((mask & (1 << i)) != 0 &&
+                    Math.abs(nums[i] - nums[index]) == k) {
+                valid = false;
+                break;
+            }
+        }
+
+
+        if (valid) {
+            take = solveDfsPickNotPickMask(index + 1, k, nums,memo, mask | 1 << index);
+        }
+
+        int result = take + noTake;
+        memo.put(key, result);
+        return result;
+
     }
 
     static int count = 0;

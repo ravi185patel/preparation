@@ -1,4 +1,4 @@
-package career.datastructure.dp.hard;
+package career.datastructure.dp;
 
 import java.util.Stack;
 

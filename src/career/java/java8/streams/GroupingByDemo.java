@@ -13,6 +13,7 @@ public class GroupingByDemo {
         Department itDept = new Department("IT", "New York");
         Department hrDept = new Department("HR", "San Francisco");
         Department financeDept = new Department("Finance", "London");
+        System.out.println(itDept instanceof Department);
 
         // Create some employees
         List<Employee> employees = Arrays.asList(

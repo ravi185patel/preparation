@@ -108,7 +108,7 @@ public class CountMaxOrSubSets {
         for(int subsetMask =0; subsetMask < totalSubSets;subsetMask++){
             int currentOrValue=0;
             for(int i=0;i<nums.length;i++){
-                if(((subsetMask >> i ) & 1) == 1){
+                if(((subsetMask >> i ) & 1) == 1){ // check if bit is set then use it and set bit.
                     currentOrValue |= nums[i];
                 }
             }
