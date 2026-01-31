@@ -93,9 +93,9 @@ public class UnbaoundKnapSack {
     public static int solveDp(int n ,int W,int []val,int []wt){
         int[] cur = new int[W + 1];
 
-//        for (int i = wt[0]; i <= W; i++) {
-//            cur[i] = (i / wt[0]) * val[0];
-//        }
+        for (int i = wt[0]; i <= W; i++) { // step prune new branches as you directly stop at position when result gives 0
+            cur[i] = (i / wt[0]) * val[0];
+        }
 
         for (int ind = 0; ind < n; ind++) {
             for (int cap = 0; cap <= W; cap++) {
