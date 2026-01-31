@@ -43,7 +43,8 @@ public class CoinChange2 {
             for(int sum=0;sum<=target;sum++){
                 curr[sum] = dp[sum];
                 if(sum >= nums[i]) {
-                    curr[sum] += dp[sum-nums[i]];
+                    curr[sum] += curr[sum-nums[i]]; // very important point when you need to consider
+                    //same element at that movement you are taking element from curr row instead of prev.
                 }
             }
             dp= curr.clone();
