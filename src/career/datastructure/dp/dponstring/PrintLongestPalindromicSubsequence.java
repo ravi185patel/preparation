@@ -1,20 +1,16 @@
 package career.datastructure.dp.dponstring;
 
-public class MinInsertToMakeStringPalindromic {
+public class PrintLongestPalindromicSubsequence {
     public static void main(String[] args) {
         System.out.println(lcs("eeeme"));
         System.out.println(lcs("annb"));
-        System.out.println(lcs("abcaa"));
-        System.out.println(lcs("ba"));
     }
-    public static int lcs(String s) {
+    public static String lcs(String s) {
         //Your code goes here
 
         String t = new StringBuilder(s).reverse().toString();
 //        return solve(s.toCharArray(),t.toCharArray(),s.length()-1,t.length()-1);
-//        return solveDp(s.toCharArray(),t.toCharArray(),s.length()-1,t.length()-1);
-        int longestPalindromeStr = solveDpOpt(s.toCharArray(),t.toCharArray(),s.length()-1,t.length()-1);
-        return (t.length()-longestPalindromeStr);
+        return solveDp(s.toCharArray(),t.toCharArray(),s.length()-1,t.length()-1);
     }
 
     public static int solve(char[] sCharArr,char [] tCharArr,int inds,int indt){
@@ -30,7 +26,7 @@ public class MinInsertToMakeStringPalindromic {
         }
     }
 
-    public static int solveDp(char[] sCharArr,char [] tCharArr,int inds,int indt){
+    public static String solveDp(char[] sCharArr,char [] tCharArr,int inds,int indt){
         int sLength = sCharArr.length;
         int tLength = tCharArr.length;
         int dp[][]=new int[sLength+1][tLength+1];
@@ -47,32 +43,20 @@ public class MinInsertToMakeStringPalindromic {
             }
         }
 
-        return dp[sLength][tLength];
-    }
-
-    public static int solveDpOpt(char[] sCharArr,char [] tCharArr,int inds,int indt){
-        int sLength = sCharArr.length;
-        int tLength = tCharArr.length;
-        int maxLength =0 ;
-        int prev[]=new int[tLength+1];
-
-        for(inds=1;inds<=sLength;inds++){
-            int curr[]=new int[tLength+1];
-            for(indt=1;indt<=tLength;indt++){
-                if(sCharArr[inds-1] == tCharArr[indt-1]){
-                    curr[indt] = 1 + prev[indt-1];//solve(sCharArr,tCharArr,inds-1,indt-1);
-//                    maxLength = Math.max(maxLength,curr[indt]);
-                }else {
-                    curr[indt] = Math.max(curr[indt-1],prev[indt]);
-//                    return Math.max(solve(sCharArr,tCharArr,inds,indt-1),
-//                            solve(sCharArr,tCharArr,inds-1,indt));
-                }
+        StringBuilder sb = new StringBuilder();
+        int i = sLength,j=tLength;
+        while(i >  0 && j > 0){
+            if(sCharArr[i-1] == tCharArr[j-1]){
+                sb.append(sCharArr[i-1]);
+                i--;
+                j--;
+            }else if(dp[i-1][j] > dp[i][j-1]){ // we are taking max to get longest subsequence
+                i--;
+            }else{
+                j--;
             }
-            prev = curr.clone();
         }
-        for(int no:prev){
-            maxLength = Math.max(maxLength,no);
-        }
-        return maxLength;
+        return sb.reverse().toString();
     }
+
 }

@@ -1,20 +1,15 @@
 package career.datastructure.dp.dponstring;
 
-public class MinInsertToMakeStringPalindromic {
+public class MinInsertDeleteToMakeString {
     public static void main(String[] args) {
-        System.out.println(lcs("eeeme"));
-        System.out.println(lcs("annb"));
-        System.out.println(lcs("abcaa"));
-        System.out.println(lcs("ba"));
+        System.out.println(lcs("kitten","sitting"));
+        System.out.println(lcs("flaw","lawn"));
     }
-    public static int lcs(String s) {
-        //Your code goes here
-
-        String t = new StringBuilder(s).reverse().toString();
+    public static int lcs(String s,String t) {
 //        return solve(s.toCharArray(),t.toCharArray(),s.length()-1,t.length()-1);
 //        return solveDp(s.toCharArray(),t.toCharArray(),s.length()-1,t.length()-1);
         int longestPalindromeStr = solveDpOpt(s.toCharArray(),t.toCharArray(),s.length()-1,t.length()-1);
-        return (t.length()-longestPalindromeStr);
+        return (t.length()-longestPalindromeStr) + (s.length() - longestPalindromeStr);
     }
 
     public static int solve(char[] sCharArr,char [] tCharArr,int inds,int indt){
