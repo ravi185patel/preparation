@@ -4,7 +4,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /*
-The class ReentrantLock is a mutual exclusion lock with the same basic behavior as the implicit monitors accessed via the synchronized keyword
+The class ReentrantLock is a mutual exclusion lock with
+the same basic behavior as the implicit monitors accessed via the synchronized keyword
 but with extended capabilities. As the name suggests this lock implements reentrant characteristics just as implicit monitors.
 
 The method tryLock() as an alternative to lock() tries to acquire the lock without pausing the current thread.
@@ -44,7 +45,6 @@ public class ReentrantLockDemo {
         and they pass two different instances of Runnable to two different threads like where SimpleLock is a Runnable.
         Since here myLock is an instance variable, each instance of SimpleLock has its own myLock instance,
         which means firstThread and secondThread are using different locks and they can run protected code simultaneously.
-
          */
 
         // Task to be executed by each thread

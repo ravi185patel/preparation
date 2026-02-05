@@ -12,7 +12,8 @@ Note :
 
 Volatile :
 “Don’t cache this. Always read and write from main memory.”
-volatile is safe ONLY for variables that are read or written, but never modified based on their current value
+volatile is safe ONLY for variables that are read or written,
+but never modified based on their current value
 volatile does not guarantee atomicity for "compound operations"
 
 worked :
@@ -53,7 +54,8 @@ Even though visibility is guaranteed, atomicity is not.
 Java Memory Model (JMM):
  */
 class Voletile{
-    boolean flag; //It works for boolean because boolean read/write is atomic, but fails for compound operations like counter++.
+    boolean flag; //It works for boolean because boolean read/write is atomic,
+    // but fails for compound operations like counter++.
     int noCounter; // visibility problem during threading
     volatile int counter; // solve visibility problem but create synchronized problem ( solution make method synchronized)
     //“Don’t cache this. Always read and write from main memory.” and volatile does not guarantee atomicity for "compound operations".
