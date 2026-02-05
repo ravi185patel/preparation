@@ -77,5 +77,16 @@ public class StockBuyAndSell3 {
 
         return dp[0][0][2];
     }
+    public static int maxProfitNormal(int[]prices,int flag,int index){
+        int length = prices.length;
+        int buyFirst=0,buySecond=0,sellFirst=0,sellSecond=0;
+        for(int i=length-1;i>=0;i--){
+            sellFirst = Math.max(sellFirst,prices[i]+buyFirst);
+            buyFirst = Math.max(buyFirst,-prices[i]+sellFirst);
+            sellSecond = Math.max(sellSecond,prices[i]+buySecond);
+            buySecond = Math.max(buySecond,prices[i]+sellSecond);
+        }
+        return  sellFirst;
+    }
 // sapce optimization -> prev[2][3] and curr[2][3]
 }

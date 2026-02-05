@@ -74,7 +74,7 @@ public class StockBuyAndSell4 {
             }
         }
 
-        return dp[0][0][2];
+        return dp[0][0][k];
     }
 
 }

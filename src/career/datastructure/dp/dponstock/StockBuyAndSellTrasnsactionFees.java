@@ -95,4 +95,14 @@ public class StockBuyAndSellTrasnsactionFees {
         }
         return prev[0];
     }
+
+    public int solveOp(int[] prices, int fee) {
+        int sell = 0;
+        int purchase=-prices[0];
+        for(int i=1;i<prices.length;i++){
+            purchase = Math.max(purchase,-prices[i]+sell);
+            sell = Math.max(sell,prices[i]+purchase-fee);
+        }
+        return sell;
+    }
 }
