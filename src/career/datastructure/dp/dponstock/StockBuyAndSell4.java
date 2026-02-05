@@ -7,9 +7,9 @@ public class StockBuyAndSell4 {
 //        System.out.println(maxProfit(new int[]{7, 6, 4, 3, 1}));
     }
     public static int maxProfit(int prices[],int k){
-//        return solve(0,2,0,prices);
+        return solve(0,k,0,prices);
         // Creating a 3D dp array of size [n][2][3]
-/*        int[][][] memo = new int[prices.length][2][3];
+/*        int[][][] memo = new int[prices.length][2][k+1];
 
         // Initialize the dp array with -1
         for (int i = 0; i < prices.length; i++) {
@@ -18,9 +18,9 @@ public class StockBuyAndSell4 {
             }
         }*/
 //
-//        return solveMemo(0,2,0,prices,memo);
+//        return solveMemo(0,k,0,prices,memo);
 
-        return solveDp(prices,k);
+//        return solveDp(prices,k);
     }
 
     public static int solve(int index,int noOfTrans,int op,int prices[]){

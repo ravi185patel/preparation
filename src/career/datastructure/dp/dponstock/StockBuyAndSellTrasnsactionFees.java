@@ -24,37 +24,37 @@ public class StockBuyAndSellTrasnsactionFees {
         return solveDpOp(prices,fee);
     }
 
-    public static int solve(int index,int noOfTrans,int op,int prices[]){
-        if(index ==prices.length || noOfTrans == 0){
+    public static int solve(int index,int op,int fee,int prices[]){
+        if(index ==prices.length){
             return 0;
         }
 
         if(op == 0){
-            return Math.max(solve(index + 1, noOfTrans, 0, prices),
-                    -prices[index]+solve(index+1,noOfTrans,1,prices));
+            return Math.max(solve(index + 1,  0,fee, prices),
+                    -prices[index]+solve(index+1,1,fee,prices));
         }else{
-            return Math.max(solve(index + 1, noOfTrans, 1, prices),
-                    prices[index]+solve(index+1,noOfTrans-1,0,prices));
+            return Math.max(solve(index + 1,  1,fee, prices),
+                    prices[index]-fee+solve(index+1,0,fee,prices));
         }
     }
 
-    public static int solveMemo(int index,int noOfTrans,int op,int prices[],int memo[][][]){
-        if(index ==prices.length || noOfTrans == 0){
+    public static int solveMemo(int index,int op,int fee,int prices[],int memo[][]){
+        if(index ==prices.length){
             return 0;
         }
-        if(memo[index][op][noOfTrans]!= -1){
-            return memo[index][op][noOfTrans];
+        if(memo[index][op]!= -1){
+            return memo[index][op];
         }
         int profit=0;
         if(op == 0){
-            profit = Math.max(solve(index + 1, noOfTrans, 0, prices),
-                    -prices[index]+solve(index+1,noOfTrans,1,prices));
+            profit = Math.max(solveMemo(index + 1,  0,fee, prices,memo),
+                    -prices[index]+solveMemo(index+1,1,fee,prices,memo));
         }else{
-            profit = Math.max(solve(index + 1, noOfTrans, 1, prices),
-                    prices[index]+solve(index+1,noOfTrans-1,0,prices));
+            profit = Math.max(solveMemo(index + 1,  1,fee, prices,memo),
+                    prices[index]-fee+solveMemo(index+1,0,fee,prices,memo));
         }
 
-        return memo[index][op][noOfTrans]=profit;
+        return memo[index][op]=profit;
     }
 
     public static int solveDp(int prices[],int fee){

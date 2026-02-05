@@ -77,5 +77,5 @@ public class StockBuyAndSell3 {
 
         return dp[0][0][2];
     }
-
+// sapce optimization -> prev[2][3] and curr[2][3]
 }
