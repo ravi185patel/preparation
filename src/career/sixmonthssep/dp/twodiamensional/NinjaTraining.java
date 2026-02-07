@@ -27,7 +27,13 @@ public class NinjaTraining {
     public static void main(String[] args) {
         int arr[][]=
 //                {{1, 2, 5},{3, 1, 1},{3, 3, 3}};
-        {{10,40,70},{20,50,80},{30,60,90}};
+//        {{10,40,70},{20,50,80},{30,60,90}};
+//        {{10,40,70},{20,50,80},{30,60,90}};
+        {
+            {70, 40, 10},
+            {180, 20, 5},
+            {200, 60, 30}
+        };
         System.out.println(ninjaTrainingDp(arr));
         System.out.println(ninjaTrainingDpOp(arr));
     }
