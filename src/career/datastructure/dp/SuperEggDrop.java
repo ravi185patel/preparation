@@ -8,7 +8,8 @@ public class SuperEggDrop {
     }
     public static int superEggDrop(int k, int n) {
 //        return solve(k,n);
-        return solveDp(k,n);
+//        return solveDp(k,n);
+        return solveDpOpt(k,n);
     }
 
     public static int solve(int e,int n){
@@ -125,6 +126,7 @@ public class SuperEggDrop {
             for (int e = eggs; e > 0; e--) {
                 dp[e] = dp[e] + dp[e - 1] + 1;
             }
+            System.out.println(Arrays.toString(dp));
         }
 
         return moves;

@@ -27,7 +27,8 @@ public class MaximumProfitInJobScheduling {
         int memo[]=new int[n+1];
         Arrays.fill(memo,-1);
         // return solveMemo(0,temp,memo);
-        return solveDp(0,temp,memo);
+//        return solveDp(0,temp,memo);
+        return solveDpBs(0,temp,memo);
 
     }
 
@@ -111,20 +112,18 @@ public class MaximumProfitInJobScheduling {
 
     private static int findLastNonConflicting(int[][] temp, int index) {
         int low = 0, high = index - 1;
-
+        int ans=-1;
         while (low <= high) {
             int mid = (low + high) / 2;
 
             if (temp[mid][1] <= temp[index][0]) {
-                if (mid + 1 <= high && temp[mid + 1][1] <= temp[index][0])
-                    low = mid + 1;
-                else
-                    return mid;
+                ans = mid;       // store candidate
+                low = mid + 1;   // move right
             } else {
                 high = mid - 1;
             }
         }
-        return -1;
+        return ans;
     }
 
 }
