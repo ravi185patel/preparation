@@ -125,5 +125,46 @@ public class MaximumProfitInJobScheduling {
         }
         return ans;
     }
+    public static int solveRec(int index, int prevIndex, int[][] temp) {
+        if (index == temp.length) return 0;
 
+        // Option 1: skip current job
+        int noTake = solveRec(index + 1, prevIndex, temp);
+
+        int take = 0;
+
+        // Option 2: take current job if no conflict
+        if (prevIndex == -1 || temp[prevIndex][1] <= temp[index][0]) {
+            take = temp[index][2] + solveRec(index + 1, index, temp);
+        }
+
+        return Math.max(take, noTake);
+    }
+
+    public static int solveDp(int temp[][]){
+        int n = temp.length;
+        Arrays.sort(temp, (a, b) -> a[0] - b[0]);
+
+        int[][] dp = new int[n + 1][n + 1];
+
+        for (int index = n - 1; index >= 0; index--) {
+
+            for (int prevIndex = index - 1; prevIndex >= -1; prevIndex--) {
+
+                // Option 1: skip
+                int noTake = dp[index + 1][prevIndex + 1];
+
+                // Option 2: take (if valid)
+                int take = 0;
+
+                if (prevIndex == -1 || temp[prevIndex][1] <= temp[index][0]) {
+                    take = temp[index][2] + dp[index + 1][index + 1];
+                }
+
+                dp[index][prevIndex + 1] = Math.max(take, noTake);
+            }
+        }
+
+        return dp[0][0]; // start at index=0, prevIndex=-1
+    }
 }
