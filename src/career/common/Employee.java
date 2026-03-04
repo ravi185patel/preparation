@@ -6,12 +6,14 @@ public class Employee {
     String name;
     double salary;
     Department department;
+    List<Department> departments;
     List<String> skills;
 
-    public Employee(String name, double salary, Department department) {
+    public Employee(String name, double salary, Department department,List<Department> departments) {
         this.name = name;
         this.salary = salary;
         this.department = department;
+        this.departments = departments;
     }
 
     public String getName() {
@@ -24,6 +26,10 @@ public class Employee {
 
     public Department getDepartment() {
         return department;
+    }
+
+    public List<Department> getDepartments() {
+        return this.departments;
     }
 
     @Override

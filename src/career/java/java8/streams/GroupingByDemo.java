@@ -17,12 +17,12 @@ public class GroupingByDemo {
 
         // Create some employees
         List<Employee> employees = Arrays.asList(
-                new Employee("Alice", 75000, itDept),
-                new Employee("Bob", 60000, hrDept),
-                new Employee("Charlie", 80000, itDept),
-                new Employee("David", 95000, financeDept),
-                new Employee("Eve", 85000, itDept),
-                new Employee("Frank", 67000, hrDept)
+                new Employee("Alice", 75000, itDept,Arrays.asList(itDept,financeDept)),
+                new Employee("Bob", 60000, hrDept,Arrays.asList(itDept,hrDept)),
+                new Employee("Charlie", 80000, itDept,Arrays.asList(hrDept,financeDept)),
+                new Employee("David", 95000, financeDept,Arrays.asList(itDept,financeDept)),
+                new Employee("Eve", 85000, itDept,Arrays.asList(itDept,hrDept)),
+                new Employee("Frank", 67000, hrDept,Arrays.asList(hrDept,financeDept))
         );
 
 
@@ -75,6 +75,123 @@ public class GroupingByDemo {
 
         employeeCountByDepartment.forEach((department, count) ->
                 System.out.println(department + ": " + count));
+
+
+        Map<String,List<String>> departmentEmployeeMap =
+                employees.stream().flatMap(employee ->
+                        employee.getDepartments()
+                                .stream()
+                                .map(department ->
+                                        Map.entry(department.getName(),employee.getName()))
+                        )
+                                .collect(
+                                        Collectors.groupingBy(
+                                                Map.Entry::getKey,
+                                                Collectors.mapping(Map.Entry::getValue,
+                                                        Collectors.toList()))
+                                );
+
+        System.out.println(departmentEmployeeMap);
+
+
+        List<Map.Entry<String, Double>> departmentEmplyeeName=
+        employees.stream().flatMap(
+                employee -> employee.getDepartments().stream().map(department -> Map.entry(department.getName(),employee.getSalary()))
+        ).collect(Collectors.toList());
+
+        System.out.println(departmentEmplyeeName);
+
+        Map<String, Double> departmentMaxSalary =
+                employees.stream()
+                        .flatMap(emp ->
+                                emp.getDepartments().stream()
+                                        .map(dept -> new AbstractMap.SimpleEntry<>(
+                                                dept.getName(),
+                                                emp.getSalary()
+                                        ))
+                        )
+                        .collect(Collectors.groupingBy(
+                                entry -> entry.getKey(),
+                                Collectors.collectingAndThen(
+                                        Collectors.maxBy(
+                                                Comparator.comparing(
+                                                        entry -> entry.getValue()
+                                                )
+                                        ),
+                                        opt -> opt.map(e -> e.getValue())
+                                                .orElse(0.0)
+                                )
+                        ));
+        System.out.println(departmentMaxSalary);
+        departmentMaxSalary =
+                employees.stream()
+                        .flatMap(emp ->
+                                emp.getDepartments().stream()
+                                        .map(dept -> new AbstractMap.SimpleEntry<>(
+                                                dept.getName(),
+                                                emp.getSalary()
+                                        ))
+                        )
+                        .collect(Collectors.groupingBy(
+                                entry -> entry.getKey(),
+                                Collectors.reducing(
+                                        0.0,
+                                        entry -> entry.getValue(),
+                                        Double::max
+                                )
+                        ));
+        System.out.println(departmentMaxSalary);
+        departmentMaxSalary =
+                employees.stream()
+                        .flatMap(emp ->
+                                emp.getDepartments().stream()
+                                        .map(dept -> new AbstractMap.SimpleEntry<>(
+                                                dept.getName(),
+                                                emp.getSalary()
+                                        ))
+                        )
+                        .collect(Collectors.groupingBy(
+                                entry -> entry.getKey(),
+                                Collectors.collectingAndThen(
+                                        Collectors.mapping(
+                                                entry -> entry.getValue(),
+                                                Collectors.toList()
+                                        ),
+                                        list -> list.stream()
+                                                .distinct()
+                                                .sorted(Comparator.reverseOrder())
+                                                .skip(2)
+                                                .findFirst()
+                                                .orElse(0.0)
+                                )
+                        ));
+        System.out.println(departmentMaxSalary);
+
+        departmentMaxSalary =
+                employees.stream()
+                        .flatMap(emp ->
+                                emp.getDepartments().stream()
+                                        .map(dept -> new AbstractMap.SimpleEntry<>(
+                                                dept.getName(),
+                                                emp.getSalary()
+                                        ))
+                        )
+                        .collect(Collectors.groupingBy(
+                                entry -> entry.getKey(),
+                                Collectors.collectingAndThen(
+                                        Collectors.mapping(
+                                                entry -> entry.getValue(),
+                                                Collectors.toList()
+                                        ),
+                                        list -> list.stream()
+                                                .distinct()
+                                                .sorted(Comparator.reverseOrder())
+                                                .skip(1)
+                                                .findFirst()
+                                                .orElse(0.0)
+                                )
+                        ));
+        System.out.println(departmentMaxSalary);
     }
 
 }

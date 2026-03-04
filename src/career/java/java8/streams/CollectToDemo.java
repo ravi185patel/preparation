@@ -55,12 +55,12 @@ public class CollectToDemo {
 
         // Create some employees
         List<Employee> employees = Arrays.asList(
-                new Employee("Alice", 75000, itDept),
-                new Employee("Bob", 60000, hrDept),
-                new Employee("Charlie", 80000, itDept),
-                new Employee("David", 95000, financeDept),
-                new Employee("Eve", 85000, itDept),
-                new Employee("Frank", 67000, hrDept)
+                new Employee("Alice", 75000, itDept,null),
+                new Employee("Bob", 60000, hrDept,null),
+                new Employee("Charlie", 80000, itDept,null),
+                new Employee("David", 95000, financeDept,null),
+                new Employee("Eve", 85000, itDept,null),
+                new Employee("Frank", 67000, hrDept,null)
         );
 
         // Collecting employees into a Map (id -> Employee)
