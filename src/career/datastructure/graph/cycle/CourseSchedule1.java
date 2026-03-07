@@ -25,13 +25,14 @@ public class CourseSchedule1 {
     static Map<Integer, List<Integer>> courseMap;
     static int noOfcourses=0;
     public static void main(String[] args) {
-        int numCourses = 2, prerequisites[][] = {{1,0},{0,1}};
+//        int numCourses = 2, prerequisites[][] = {{1,0},{0,1}};
 //        int numCourses = 4,prerequisites[][] = {{1, 0},{2, 0},{3, 1},{3, 2}};
+        int numCourses = 5,prerequisites[][] = {{1,4},{2,4},{3,1},{3,2}};
         boolean visited[] = new boolean[numCourses];
         boolean pathVisited[]=new boolean[numCourses];
         createAdjLst(numCourses,prerequisites);
         System.out.println(canFinish(numCourses,visited,pathVisited));
-        System.out.println(topoSort(numCourses,visited));
+//        System.out.println(topoSort(numCourses,visited));
     }
 
     public static boolean canFinish(int numCourses,boolean visited[],boolean pathVisited[]) {
@@ -64,6 +65,10 @@ public class CourseSchedule1 {
         return false;
     }
 
+    /*
+    Your idea of detecting a directed cycle using pure BFS with visited[] and pathVisited[] will not work reliably.
+    The reason is conceptual: BFS does not maintain a single path like DFS, so pathVisited cannot represent a recursion stack.
+     */
     public static boolean bfs(int course,boolean visited[],boolean pathVisited[]){
         Queue<Integer> queue = new LinkedList<>();
         queue.add(course);
