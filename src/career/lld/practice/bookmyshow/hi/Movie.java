@@ -1,4 +1,4 @@
-package career.lld.practice.bookmyshow;
+package career.lld.practice.bookmyshow.hi;
 
 public class Movie {
     private final String id;
