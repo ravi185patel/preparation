@@ -19,7 +19,7 @@ class Booking {
     public void confirmBooking() {
 
         for (Seat seat : seats) {
-            seat.confirmBooking();
+//            seat.confirmBooking();
         }
     }
 

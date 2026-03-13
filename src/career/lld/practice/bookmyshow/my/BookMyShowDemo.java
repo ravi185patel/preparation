@@ -10,7 +10,7 @@ public class BookMyShowDemo {
 
         Screen screen = new Screen("S1", 10);
 
-        Show show = new Show("SHOW1", movie, screen, new Date());
+        Show show = null;//new Show(Arrays.asList(screen));
 
         User user = new User("U1", "Aryan");
 

@@ -11,7 +11,7 @@ class Screen {
         this.screenId = screenId;
 
         for (int i = 1; i <= totalSeats; i++) {
-            seats.add(new Seat(i));
+//            seats.add(new Seat(i));
         }
     }
 

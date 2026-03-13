@@ -12,7 +12,7 @@ class CatalogService {
     }
 
     public void addShow(Show show) {
-        shows.put(show.getMovie().getMovieId(), show);
+//        shows.put(show.getMovie().getMovieId(), show);
     }
 
     public Collection<Movie> getMovies() {

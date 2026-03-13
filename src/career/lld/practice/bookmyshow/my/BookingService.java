@@ -13,18 +13,18 @@ class BookingService {
 
         for (int seatNo : seatNumbers) {
 
-            Seat seat = show.getSeat(seatNo);
-
-            if (!seat.lockSeat()) {
-
-                for (Seat s : lockedSeats) {
-                    s.releaseSeat();
-                }
-
-                throw new RuntimeException("Seat not available");
-            }
-
-            lockedSeats.add(seat);
+//            Seat seat = show.getSeat(seatNo);
+//
+//            if (!seat.lockSeat()) {
+//
+//                for (Seat s : lockedSeats) {
+//                    s.releaseSeat();
+//                }
+//
+//                throw new RuntimeException("Seat not available");
+//            }
+//
+//            lockedSeats.add(seat);
         }
 
         boolean paymentSuccess = paymentService.makePayment(user, seatNumbers.size() * 200);
@@ -32,7 +32,7 @@ class BookingService {
         if (!paymentSuccess) {
 
             for (Seat s : lockedSeats) {
-                s.releaseSeat();
+//                s.releaseSeat();
             }
 
             throw new RuntimeException("Payment failed");
