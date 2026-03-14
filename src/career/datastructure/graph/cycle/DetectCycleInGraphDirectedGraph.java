@@ -74,7 +74,7 @@ public class DetectCycleInGraphDirectedGraph {
         return false;
     }
 
-    private static boolean bfs(int node,int parent,int[][]adj,boolean visited[],boolean pathVisited[]){
+    private static boolean bfs(int node,int parent,int[][]adj,boolean visited[],boolean pathVisited[]){//  will not worked for 0>1>2 and 0>2
         int parentNode[]=new int[adj.length+1];
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{node,node});
