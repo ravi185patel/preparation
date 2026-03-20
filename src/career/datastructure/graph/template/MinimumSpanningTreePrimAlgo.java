@@ -45,6 +45,15 @@ public class MinimumSpanningTreePrimAlgo {
                 Inner loop check → avoids pushing unnecessary edges
                 Outer check (visited[node]) → avoids processing duplicates from PQ
                 👉 Both are needed for correctness + efficiency
+
+                
+                The outer visited[node] check is about “Should I process this node at all?”
+                The inner check is about “Should I consider this neighbor?”
+
+                | Check                     | Purpose                   | Location         |
+                | ------------------------- | ------------------------- | ---------------- |
+                | `if (visited[node])`      | Skip duplicate PQ entries | **Outside loop** |
+                | `if (!visited[neighbor])` | Avoid unnecessary pushes  | **Inside loop**  |
              */
 
             minDis += node[1];
