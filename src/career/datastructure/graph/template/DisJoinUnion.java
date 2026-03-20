@@ -41,6 +41,31 @@ public class DisJoinUnion {
             //etc code will be added based on problem condition
         }
 
+         /*
+    Union by Rank: “Attach smaller height tree under taller one”
+
+    | Case              | Action                     |
+    | ----------------- | -------------------------- |
+    | rank[X] > rank[Y] | attach Y under X           |
+    | rank[X] < rank[Y] | attach X under Y           |
+    | equal             | attach any + increase rank |
+
+    ⚡ Combined Effect (Very Important)
+    With:
+    Path Compression (find)
+    Union by Rank/Size
+
+    👉 Time complexity becomes:
+    Almost O(1) (amortized, technically α(n))
+
+    🧠 Final takeaway
+    parent[] → structure
+    rank[] → tree height (used in unionRank)
+    size[] → number of nodes (used in unionWeight)
+
+    👉 NEVER compare parent[] values
+    👉 ALWAYS compare rank[] or size[]
+     */
         public void unionByRank(int x,int y){
             int xParent = find(x);
             int yParent = find(y);
