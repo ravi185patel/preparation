@@ -29,7 +29,23 @@ public class MinimumSpanningTreePrimAlgo {
 
             int node[]=pq.poll();
 
-            if(visited[node[0]]) continue; // why it is not work if i put check inside for loop
+            if(visited[node[0]]) continue; 
+            // why it is not worked inside loop
+            // reason :- you need to process min edges of each node not path
+            // so 0 -> 1(2), 3 -> 1(8),0-> 3(6) now 1 has 2 edges from 1 and 3
+            // which is small 0 -> 1 if you put inside loop it won't process 3->1 as it is already visited
+            // and even if you use distance array it will be exclude as it has lower distance
+            /*
+                Because the priority queue can contain duplicates:
+                Same node may be pushed multiple times with different weights
+                Only the smallest one should be used
+                Others must be ignored → that’s what visited[] does
+
+                🧠 Key insight
+                Inner loop check → avoids pushing unnecessary edges
+                Outer check (visited[node]) → avoids processing duplicates from PQ
+                👉 Both are needed for correctness + efficiency
+             */
 
             minDis += node[1];
             visited[node[0]]=true;
